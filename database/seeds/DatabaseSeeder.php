@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,6 +12,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $now = Carbon::now();
+
+        //用户表
+        DB::table('users')->insert([
+            'userId' => 'admin',
+            'name' => '超级管理员',
+            'isAdmin' => 1,
+            'password' => bcrypt('test'),
+            'roleId' => '0',
+            'created_at' => $now,
+            'updated_at' => $now
+        ]);
     }
 }
