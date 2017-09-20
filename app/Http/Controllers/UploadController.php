@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 class UploadController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function commonUploadImage()
     {
         $request = request();
@@ -18,6 +23,8 @@ class UploadController extends Controller
         }
 
         $file_extension = $file->getClientOriginalExtension();
+
+        if ($file_extension) $file_extension = strtolower($file_extension);
 
         if ($file_extension && !in_array($file_extension, $allowed_extensions)) {
             return response()->json(array('error'=> '只能上传以下格式的图片：'.implode('、', $allowed_extensions).'！'), 200);

@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     //获取页数信息和第一页数据
     public function getPageInfo()
     {

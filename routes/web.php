@@ -42,7 +42,7 @@ Route::get('/admin', 'AdminsController@index')->name('home');
 Route::post('/admin/modifyPwd', 'AdminsController@modifyPwd');
 
 /*
- * 后台产品管理相关路由
+ * 后台产品相关路由
  */
 //后台管理-产品类别列表
 Route::get('/admin/product/categoryList', 'ProductController@categoryList');
@@ -76,3 +76,27 @@ Route::post('/admin/product/del', 'ProductController@del');
 Route::post('/admin/product/modify', 'ProductController@modify');
 //后台管理-文章修改保存
 Route::post('/admin/product/storeModify', 'ProductController@storeModify');
+
+/*
+ * 后台服务与支持相关路由
+ */
+//后台管理-问题列表
+Route::get('/admin/service/issueList', 'ServiceController@issueList');
+//后台管理-问题添加
+Route::post('/admin/service/issueAdd', 'ServiceController@issueAdd');
+//后台管理-获取问题
+Route::post('/admin/service/issueGet', 'ServiceController@issueGet');
+//后台管理-问题修改
+Route::post('/admin/service/issueModify', 'ServiceController@issueModify');
+//后台管理-问题删除
+Route::post('/admin/service/issueDel', 'ServiceController@issueDel');
+//后台管理-经销商列表
+Route::get('/admin/service/vendorList', 'ServiceController@vendorList');
+//后台管理-经销商添加
+Route::post('/admin/service/vendorAdd', 'ServiceController@vendorAdd');
+//后台管理-获取经销商
+Route::post('/admin/service/vendorGet', 'ServiceController@vendorGet');
+//后台管理-经销商修改
+Route::post('/admin/service/vendorModify', 'ServiceController@vendorModify');
+//后台管理-经销商删除
+Route::post('/admin/service/vendorDel', 'ServiceController@vendorDel');
