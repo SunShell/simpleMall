@@ -100,3 +100,33 @@ Route::post('/admin/service/vendorGet', 'ServiceController@vendorGet');
 Route::post('/admin/service/vendorModify', 'ServiceController@vendorModify');
 //后台管理-经销商删除
 Route::post('/admin/service/vendorDel', 'ServiceController@vendorDel');
+
+/*
+ * 后台案例相关路由
+ */
+//后台管理-案例分类列表
+Route::get('/admin/example/categoryList', 'ExampleController@categoryList');
+//后台管理-案例分类添加
+Route::post('/admin/example/categoryAdd', 'ExampleController@categoryAdd');
+//后台管理-获取案例分类
+Route::post('/admin/example/categoryGet', 'ExampleController@categoryGet');
+//后台管理-获取全部案例分类
+Route::post('/admin/example/categoryAll', 'ExampleController@categoryAll');
+//后台管理-案例分类修改
+Route::post('/admin/example/categoryModify', 'ExampleController@categoryModify');
+//后台管理-案例分类删除
+Route::post('/admin/example/categoryDel', 'ExampleController@categoryDel');
+//后台管理-案例添加页
+Route::get('/admin/example/add', 'ExampleController@add')->name('exampleAdd');
+//后台管理-案例添加保存
+Route::post('/admin/example/store', 'ExampleController@store');
+//后台管理-案例列表页
+Route::get('/admin/example/list', 'ExampleController@list')->name('exampleList');
+//后台管理-案例保存
+Route::post('/admin/example/store', 'ExampleController@store');
+//后台管理-案例修改
+Route::post('/admin/example/modify', 'ExampleController@modify');
+//后台管理-案例修改保存
+Route::post('/admin/example/storeModify', 'ExampleController@storeModify');
+//后台管理-案例删除
+Route::post('/admin/example/del', 'ExampleController@del');

@@ -91,8 +91,8 @@
             </form>
 
             <div class="form-group">
-                <label for="pIntroduce">产品卖点</label>
-                <script id="pIntroduces" name="content" type="text/plain">
+                <label for="pIntroduces">产品卖点</label>
+                <script id="pIntroduces" name="pIntroduces" type="text/plain">
                     {!! session('productData') ? session('productData')->introduce : '' !!}
                 </script>
             </div>
