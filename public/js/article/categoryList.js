@@ -1,7 +1,6 @@
 var sp,
     layerIndex,
-    theToken,
-    ue = null;
+    theToken;
 
 $(function () {
     initSth();
@@ -14,23 +13,18 @@ function initSth() {
     initToastr();
 
     //请求数据
-    sp = $('#ilContainer').shellPaginate({
+    sp = $('#alContainer').shellPaginate({
         token: theToken,
-        table: 'service_issues',
+        table: 'article_categories',
         orderBy: 'order by created_at desc',
         nameStr: 'users.userId.name',
-        modifyFun: modifyIssue,
-        delFun: delIssue,
+        modifyFun: modifyCategory,
+        delFun: delCategory,
         listObj: [
-            {
-                type : 'checkbox',
-                value : 'id',
-                width : '10%'
-            },
             {
                 type : 'content',
                 value : 'name',
-                showName : '问题名称',
+                showName : '分类名称',
                 orderField : 'name'
             },
             {
@@ -55,11 +49,9 @@ function initSth() {
     });
 
     $('.spOpContainer').on('click','.btn-primary',function () {
-        queryIssue();
+        queryCategory();
     }).on('click','.btn-success',function () {
-        addIssue();
-    }).on('click','.btn-danger',function () {
-        delIssue();
+        addCategory();
     });
 }
 
@@ -71,27 +63,27 @@ function initToastr() {
 }
 
 //搜索操作
-function queryIssue() {
+function queryCategory() {
     var queryCN = $('#queryCN').val().trim();
 
     sp.reList("name like '%" + queryCN + "%'");
 }
 
 //修改操作
-function modifyIssue(id) {
+function modifyCategory(id) {
     $.ajax({
         type: 'post',
-        url: '/admin/service/issueGet',
+        url: '/admin/article/categoryGet',
         headers: {
             'X-CSRF-TOKEN': theToken
         },
         data: {
-            issueId: id
+            categoryId: id
         },
         success: function (res) {
             switch (res.flag){
                 case 'success':
-                    addIssue(id,res.data);
+                    addCategory(id,res.data);
                     break;
                 default:
                     toastr["error"]("未知错误！");
@@ -102,22 +94,18 @@ function modifyIssue(id) {
 }
 
 //添加和修改操作
-function addIssue(id,data) {
+function addCategory(id,data) {
     layer.open({
         type: 1,
-        title: (id ? '修改' : '添加') + '问题',
-        area: ['800px', '600px'],
+        title: (id ? '修改' : '添加') + '分类',
+        area: ['400px', '250px'],
         zIndex: 1500,
         content: '<form class="spAddForm">'+
         '<div class="form-group">'+
-        '<label for="issueName">问题名称</label>'+
-        '<input type="text" class="form-control" id="issueName" name="issueName" placeholder="问题名称" value="'+(data ? data.name : '')+'">'+
+        '<label for="categoryName">分类名称</label>'+
+        '<input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="分类名称" value="'+(data ? data.name : '')+'">'+
         '</div>'+
-        '<div class="form-group">'+
-        '<label for="issueContent">问题内容</label>'+
-        '<script id="issueContent" type="text/plain">'+(data ? data.content : '')+'</script>'+
-        '</div>'+
-        '<button type="button" class="btn btn-primary btn-block" id="addIssue">'+(id ? '修 改' : '添 加')+'</button>'+
+        '<button type="button" class="btn btn-primary btn-block" id="addCategory">'+(id ? '修 改' : '添 加')+'</button>'+
         '</form>',
         success: function(layero, index){
             layerIndex = index;
@@ -126,46 +114,25 @@ function addIssue(id,data) {
                 if(event.keyCode === 13) return false;
             });
 
-            //初始化ue
-            ue = UE.getEditor('issueContent', {
-                initialFrameWidth: '100%',
-                initialFrameHeight: '250',
-                enableAutoSave: false,
-                autoSyncData: false,
-                saveInterval: 1000*600,
-                toolbars: ueToolbars
-            });
-
-            ue.ready(function() {
-                ue.execCommand('serverparam', '_token', theToken);
-            });
-
             //保存数据
-            $('#addIssue').on('click', function () {
-                var issueName = $('#issueName').val(),
-                    issueContent = ue.getContent(),
+            $('#addCategory').on('click', function () {
+                var categoryName = $('#categoryName').val(),
                     tip = id ? '修改' : '添加';
 
-                if(!issueName){
-                    toastr["error"]("请填写问题名称！");
-                    return false;
-                }
-
-                if(!issueContent){
-                    toastr["error"]("请填写问题内容！");
+                if(!categoryName){
+                    toastr["error"]("请填写分类名称！");
                     return false;
                 }
 
                 $.ajax({
                     type: 'post',
-                    url: id ? '/admin/service/issueModify' : '/admin/service/issueAdd',
+                    url: id ? '/admin/article/categoryModify' : '/admin/article/categoryAdd',
                     headers: {
                         'X-CSRF-TOKEN': theToken
                     },
                     data: {
-                        issueId: id || '',
-                        issueName: issueName,
-                        issueContent: issueContent
+                        categoryId: id || '',
+                        categoryName: categoryName
                     },
                     success: function (res) {
                         switch (res.flag){
@@ -189,35 +156,23 @@ function addIssue(id,data) {
 }
 
 //删除操作
-function delIssue(id) {
-    var ids = [];
-
-    if(id){
-        ids.push(id);
-    }else{
-        $('.spListOne:checked').each(function () {
-            ids.push($(this).val());
-        });
-
-        if (ids.length < 1) {
-            toastr["error"]("请选择要删除的数据！");
-            return false;
-        }
-    }
-
+function delCategory(id) {
     if(!confirm('删除后数据不可恢复，确认删除所选数据吗？')) return false;
 
     $.ajax({
         type: 'post',
-        url: '/admin/service/issueDel',
+        url: '/admin/article/categoryDel',
         headers: {
             'X-CSRF-TOKEN': theToken
         },
         data: {
-            delId: ids.join(',')
+            delId: id
         },
         success: function (res) {
             switch (res.flag){
+                case 'exist':
+                    toastr["error"]("该分类下存在案例，无法删除！");
+                    break;
                 case 'success':
                     toastr["success"]("删除成功！");
                     sp.reList();
@@ -232,7 +187,6 @@ function delIssue(id) {
 
 //关闭弹窗
 function closeLayer() {
-    if(ue) ue.destroy();
     if(layerIndex) layer.close(layerIndex);
     layerIndex = '';
 }

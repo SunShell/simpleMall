@@ -159,6 +159,10 @@ function addCategory(id,data) {
         success: function(layero, index){
             layerIndex = index;
 
+            $('.spAddForm').on('keydown', function () {
+                if(event.keyCode === 13) return false;
+            });
+
             //绑定图片上传
             $('#cuiBtn').on('click',function () {
                 var cuiValue = $('#cuiValue').val();

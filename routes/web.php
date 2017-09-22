@@ -130,3 +130,33 @@ Route::post('/admin/example/modify', 'ExampleController@modify');
 Route::post('/admin/example/storeModify', 'ExampleController@storeModify');
 //后台管理-案例删除
 Route::post('/admin/example/del', 'ExampleController@del');
+
+/*
+ * 后台新闻相关路由
+ */
+//后台管理-新闻分类列表
+Route::get('/admin/article/categoryList', 'ArticleController@categoryList');
+//后台管理-新闻分类添加
+Route::post('/admin/article/categoryAdd', 'ArticleController@categoryAdd');
+//后台管理-获取新闻分类
+Route::post('/admin/article/categoryGet', 'ArticleController@categoryGet');
+//后台管理-获取全部新闻分类
+Route::post('/admin/article/categoryAll', 'ArticleController@categoryAll');
+//后台管理-新闻分类修改
+Route::post('/admin/article/categoryModify', 'ArticleController@categoryModify');
+//后台管理-新闻分类删除
+Route::post('/admin/article/categoryDel', 'ArticleController@categoryDel');
+//后台管理-新闻添加页
+Route::get('/admin/article/add', 'ArticleController@add')->name('articleAdd');
+//后台管理-新闻添加保存
+Route::post('/admin/article/store', 'ArticleController@store');
+//后台管理-新闻列表页
+Route::get('/admin/article/list', 'ArticleController@list')->name('articleList');
+//后台管理-新闻保存
+Route::post('/admin/article/store', 'ArticleController@store');
+//后台管理-新闻修改
+Route::post('/admin/article/modify', 'ArticleController@modify');
+//后台管理-新闻修改保存
+Route::post('/admin/article/storeModify', 'ArticleController@storeModify');
+//后台管理-新闻删除
+Route::post('/admin/article/del', 'ArticleController@del');

@@ -43,6 +43,10 @@ function addConfig(id,name) {
         '<button type="button" class="btn btn-primary btn-block" id="addConfig">'+(id ? '修 改' : '添 加')+'</button>'+
         '</form>',
         success: function(layero, index){
+            $('.spAddForm').on('keydown', function () {
+                if(event.keyCode === 13) return false;
+            });
+
             //保存数据
             $('.spAddForm').on('click','#addConfig',function () {
                 var configName = $('#configName').val(),

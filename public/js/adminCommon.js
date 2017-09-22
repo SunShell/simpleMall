@@ -90,6 +90,10 @@ $(document).ready(function() {
         }
     });
 
+    //取消表单的回车键提交
+    $('form').on('keydown', function () {
+        if(event.keyCode === 13) return false;
+    });
 
     /*-----------------------------------/
     /*	SIDEBAR NAVIGATION

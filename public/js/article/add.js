@@ -68,6 +68,11 @@ function uploadImage(obj) {
         return false;
     }
 
+    if($('#pImageDiv .uploadImageDiv').length >= 1){
+        toastr["error"]("只能上传一张图片！");
+        return false;
+    }
+
     theForm = obj.parentNode.parentNode.parentNode;
 
     $(theForm).ajaxForm({

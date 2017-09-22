@@ -110,6 +110,10 @@ function addCategory(id,data) {
         success: function(layero, index){
             layerIndex = index;
 
+            $('.spAddForm').on('keydown', function () {
+                if(event.keyCode === 13) return false;
+            });
+
             //保存数据
             $('#addCategory').on('click', function () {
                 var categoryName = $('#categoryName').val(),
