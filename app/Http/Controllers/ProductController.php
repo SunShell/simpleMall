@@ -7,6 +7,7 @@ use App\ProductCategory;
 use App\ProductConfig;
 use App\Product;
 use App\ProductAttr;
+use App\ProductCategoryConfig;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -146,7 +147,10 @@ class ProductController extends Controller
         $productConfigData = $productConfig->all();
         $userData = $user->pluck('name', 'userId');
 
-        return view('admin.dashboard.product.configList', compact('productConfigData','userData'));
+        $productCategory = new ProductCategory();
+        $categoryData = $productCategory->pluck('name', 'id');
+
+        return view('admin.dashboard.product.configList', compact('productConfigData','userData', 'categoryData'));
     }
 
     //参数添加
@@ -202,16 +206,49 @@ class ProductController extends Controller
 
         $productConfig = new ProductConfig();
         $productAttr = new ProductAttr();
+        $productCategoryConfig = new ProductCategoryConfig();
 
         $res = $productConfig->destroy($id);
         $flag = 'error';
 
         if($res){
             $productAttr->where('configId', $id)->delete();
+            $productCategoryConfig->where('configId', $id)->delete();
             $flag = 'success';
         }
 
         return response()->json(array('flag'=> $flag), 200);
+    }
+
+    //参数获取
+    public function getCategoryConfig()
+    {
+        $categoryId = request('categoryId');
+
+        $productCategoryConfig = new ProductCategoryConfig();
+
+        $res = $productCategoryConfig->where('categoryId', $categoryId)->pluck('configId');
+
+        return response()->json(array('data'=> $res), 200);
+    }
+
+    //参数配置
+    public function setCategoryConfig()
+    {
+        $categoryId = request('categoryId');
+        $configIds = request('configIds');
+
+        $arr = explode(',', $configIds);
+
+        $productCategoryConfig = new ProductCategoryConfig();
+
+        $productCategoryConfig->where('categoryId', $categoryId)->delete();
+
+        foreach ($arr as $one) {
+            $productCategoryConfig->create(['categoryId' => $categoryId, 'configId' => $one]);
+        }
+
+        return response()->json(array('flag'=> 'success'), 200);
     }
 
     //产品添加页

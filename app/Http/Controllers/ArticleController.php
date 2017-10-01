@@ -137,6 +137,7 @@ class ArticleController extends Controller
     {
         $category = request('pCategory');
         $name = request('pName');
+        $abstract = request('pAbstract');
         $image = request('pImage');
         $content = request('pContent');
 
@@ -147,6 +148,7 @@ class ArticleController extends Controller
         $res = $article->create([
             'categoryId' => $category,
             'name' => $name,
+            'abstract' => $abstract,
             'image' => $image,
             'content' => $content,
             'addUser' => $userId
@@ -190,6 +192,7 @@ class ArticleController extends Controller
         $modifyId = request('modifyId');
         $category = request('pCategory');
         $name = request('pName');
+        $abstract = request('pAbstract');
         $image = request('pImage');
         $content = request('pContent');
 
@@ -198,6 +201,7 @@ class ArticleController extends Controller
         $res = $article->where('id', $modifyId)->update([
             'categoryId' => $category,
             'name' => $name,
+            'abstract' => $abstract,
             'image' => $image,
             'content' => $content
         ]);

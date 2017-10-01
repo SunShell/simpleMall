@@ -1,17 +1,21 @@
 <?php
+    use App\Http\Controllers\ConfigController;
+
+    $wcc = new ConfigController();
+
     $routeUri = Route::current()->uri;
 ?>
 <!doctype html>
 <html>
 
 <head>
-    <title>管理后台-</title>
+    <title>管理后台-{{ $wcc->getWebsiteConfig('site_name') }}</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
     <!-- ICONS -->
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('/images/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ $wcc->getWebsiteConfig('site_icon') }}">
 
     <!-- VENDOR CSS -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">

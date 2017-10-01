@@ -1,4 +1,8 @@
-var theToken;
+var theToken,
+    configData = {},
+    configHtml = '',
+    categoryData = {},
+    categoryHtml = '<option value="">请选择</option>';
 
 $(function () {
     initSth();
@@ -7,12 +11,24 @@ $(function () {
 //初始化操作
 function initSth() {
     theToken = $('#theToken').val();
+    configData = $.parseJSON($('#configData').val());
+    categoryData = $.parseJSON($('#categoryData').val());
+
+    for(var o in configData){
+        configHtml += '<label class="configLabel"><input type="checkbox" name="configIpt" value="'+configData[o].id+'">&nbsp;'+configData[o].name+'</label>';
+    }
+
+    for(var p in categoryData){
+        categoryHtml += '<option value="'+p+'">'+categoryData[p]+'</option>';
+    }
     
     initToastr();
 
     //绑定添加
     $('.spOpContainer').on('click','.btn-success',function () {
         addConfig();
+    }).on('click', '.btn-primary', function () {//绑定参数
+        setConfig();
     });
 
     //绑定修改
@@ -79,6 +95,99 @@ function addConfig(id,name) {
                                 break;
                             default:
                                 toastr["error"](tip + "失败！");
+                                break;
+                        }
+                    }
+                });
+            });
+        }
+    });
+}
+
+//绑定参数
+function setConfig() {
+    layer.open({
+        type: 1,
+        title: '配置参数',
+        area: ['600px', '600px'],
+        zIndex: 1500,
+        content: '<form class="spAddForm">'+
+        '<div class="form-group">'+
+        '<label for="categoryId">产品分类</label>'+
+        '<select class="form-control" id="categoryId">'+categoryHtml+'</select>'+
+        '</div>'+
+        '<div class="form-group">'+
+        '<label>参数选择</label><br>'+configHtml+
+        '</div>'+
+        '<button type="button" class="btn btn-primary btn-block" id="setCategoryConfig">保存</button>'+
+        '</form>',
+        success: function(layero, index){
+            $('.spAddForm').on('keydown', function () {
+                if(event.keyCode === 13) return false;
+            });
+
+            //保存数据
+            $('.spAddForm').on('change', '#categoryId', function () {
+                var categoryId = $('#categoryId').val();
+
+                $('input[name="configIpt"]').prop('checked', false);
+
+                if(!categoryId) return false;
+
+                $.ajax({
+                    type: 'post',
+                    url: '/admin/product/getCategoryConfig',
+                    headers: {
+                        'X-CSRF-TOKEN': theToken
+                    },
+                    data: {
+                        categoryId: categoryId
+                    },
+                    success: function (res) {
+                        var arr = res.data;
+
+                        $('input[name="configIpt"]').each(function(){
+                            if(arr.indexOf(+$(this).val()) > -1){
+                                $(this).prop('checked', true);
+                            }
+                        });
+                    }
+                });
+            }).on('click','#setCategoryConfig',function () {
+                var categoryId = $('#categoryId').val();
+
+                if (!categoryId) return false;
+
+                var configIds = '';
+
+                $('input[name="configIpt"]').each(function(){
+                    if(!$(this).prop('checked')) return true;
+                    if(configIds) configIds += ',';
+                    configIds += $(this).val();
+                });
+
+                if (!configIds) {
+                    toastr["error"]("请选择参数！");
+                    return false;
+                }
+
+                $.ajax({
+                    type: 'post',
+                    url: '/admin/product/setCategoryConfig',
+                    headers: {
+                        'X-CSRF-TOKEN': theToken
+                    },
+                    data: {
+                        categoryId: categoryId,
+                        configIds: configIds
+                    },
+                    success: function (res) {
+                        switch (res.flag){
+                            case 'success':
+                                toastr["success"]("配置成功！");
+                                break;
+                            default:
+                                toastr["error"]("配置失败！");
                                 break;
                         }
                     }

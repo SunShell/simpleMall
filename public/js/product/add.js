@@ -1,5 +1,7 @@
-var theForm = null,
+var theToken,
+    theForm = null,
     ue,
+    configArr = [],
     categoryData,
     configData;
 
@@ -12,6 +14,7 @@ function initSth() {
     //初始化提示框参数
     initToastr();
 
+    theToken = $('#theToken').val();
     categoryData = $.parseJSON($('#categoryData').val());
     configData = $.parseJSON($('#configData').val());
 
@@ -25,11 +28,16 @@ function initSth() {
     });
 
     ue.ready(function() {
-        ue.execCommand('serverparam', '_token', $('#theToken').val());
+        ue.execCommand('serverparam', '_token', theToken);
     });
 
     //初始化类别
     initCategory();
+
+    //按类型切换参数
+    $('#pCategory').on('change', function () {
+        getCategoryConfig();
+    });
 
     //绑定上传图片
     $('.uploadForm').on('click', '.btn-success', function () {
@@ -69,7 +77,43 @@ function initCategory() {
     $('#pCategory').append(html);
 }
 
+//按类型切换参数
+function getCategoryConfig() {
+    var categoryId = $('#pCategory').val();
+
+    $('.product-attr-table').remove();
+
+    if(!categoryId){
+        configArr = [];
+        return false;
+    }
+
+    $.ajax({
+        type: 'post',
+        url: '/admin/product/getCategoryConfig',
+        headers: {
+            'X-CSRF-TOKEN': theToken
+        },
+        data: {
+            categoryId: categoryId
+        },
+        success: function (res) {
+            configArr = res.data;
+        }
+    });
+}
+
+//添加型号和参数
 function addAttr() {
+    if(!$('#pCategory').val()){
+        return false;
+    }
+
+    if(configArr.length < 1){
+        toastr["error"]("当前产品分类尚未配置参数，请先在参数管理中进行配置！");
+        return false;
+    }
+
     var html = '<table class="table table-bordered product-attr-table">' +
         '<tbody>' +
         '<tr>' +
@@ -79,11 +123,11 @@ function addAttr() {
         '</td>' +
         '</tr>';
 
-    for(var p in configData){
+    for(var p in configArr){
         html += '<tr>' +
-            '<td>' + configData[p] + '</td>' +
+            '<td>' + configData[configArr[p]] + '</td>' +
             '<td>' +
-            '<input type="text" class="pcAttr" data-value="'+p+'">' +
+            '<input type="text" class="pcAttr" data-value="'+configArr[p]+'">' +
             '</td>' +
             '</tr>';
     }

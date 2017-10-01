@@ -26,3 +26,11 @@
         height: 15px;
         cursor: pointer;
         font-size: 12px;  }
+
+.banner_list_image {
+    height: 80px;
+}
+
+.indexNumDiv {
+    cursor: pointer;
+}

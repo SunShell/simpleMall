@@ -163,7 +163,13 @@
                     }else if(obj.matchObj){
                         td += obj.matchObj[objData[obj.value]] || obj.matchObj;
                     }else{
-                        td += objData[obj.value];
+                        var tmpVal = objData[obj.value];
+
+                        if(tmpVal.length > 30){
+                            td += '<span class="spListMore" title="点击查看全部" tipData="'+encodeURI(tmpVal)+'">' + tmpVal.substr(0,30) + '...' + '</span>';
+                        }else{
+                            td += tmpVal;
+                        }
                     }
                     break;
                 case 'operation':
@@ -247,6 +253,15 @@
                 if ($.isFunction(_this.config.delFun)) {
                     _this.config.delFun.apply(_this,[$(this).attr('data-value')]);
                 }
+            }).on('click', '.spListMore', function () {
+                layer.open({
+                    type: 1,
+                    title: '留言内容',
+                    area: ['400px', '400px'],
+                    id: 'spListMoreTip',
+                    resize: false,
+                    content: '<div style="padding: 10px;">' + decodeURI($(this).attr('tipData')) + '</div>'
+                });
             });
         },
         //翻页事件

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Product;
+use App\Article;
+use App\Example;
+use App\SetMessage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,7 +26,24 @@ class AdminsController extends Controller
     //后台首页
     public function index()
     {
-        return view('admin.dashboard.index');
+        $product = new Product();
+        $article = new Article();
+        $example = new Example();
+        $message = new SetMessage();
+
+        $productNum = $product->count();
+        $articleNum = $article->count();
+        $exampleNum = $example->count();
+        $messageNum = $message->count();
+
+        $numObj = array(
+            'productNum' => $productNum,
+            'articleNum' => $articleNum,
+            'exampleNum' => $exampleNum,
+            'messageNum' => $messageNum
+        );
+
+        return view('admin.dashboard.index', compact('numObj'));
     }
 
     //修改密码

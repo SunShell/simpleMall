@@ -64,6 +64,10 @@ Route::post('/admin/product/configAdd', 'ProductController@configAdd');
 Route::post('/admin/product/configModify', 'ProductController@configModify');
 //后台管理-产品参数删除
 Route::post('/admin/product/configDel', 'ProductController@configDel');
+//后台管理-产品参数获取
+Route::post('/admin/product/getCategoryConfig', 'ProductController@getCategoryConfig');
+//后台管理-产品参数设置
+Route::post('/admin/product/setCategoryConfig', 'ProductController@setCategoryConfig');
 //后台管理-产品添加
 Route::get('/admin/product/add', 'ProductController@add')->name('productAdd');
 //后台管理-产品添加保存
@@ -160,3 +164,33 @@ Route::post('/admin/article/modify', 'ArticleController@modify');
 Route::post('/admin/article/storeModify', 'ArticleController@storeModify');
 //后台管理-新闻删除
 Route::post('/admin/article/del', 'ArticleController@del');
+
+/*
+ * 后台设置相关路由
+ */
+//后台管理-首页轮播图设置页
+Route::get('/admin/set/banner', 'SetController@banner');
+//后台管理-添加轮播图
+Route::post('/admin/set/bannerAdd', 'SetController@bannerAdd');
+//后台管理-获取轮播图详情
+Route::post('/admin/set/bannerGet', 'SetController@bannerGet');
+//后台管理-修改轮播图
+Route::post('/admin/set/bannerModify', 'SetController@bannerModify');
+//后台管理-删除轮播图
+Route::post('/admin/set/bannerDel', 'SetController@bannerDel');
+//后台管理-通用设置页
+Route::get('/admin/set/common', 'SetController@common');
+//后台管理-通用设置保存
+Route::post('/admin/set/commonStore', 'SetController@commonStore');
+//后台管理-关于我们设置页
+Route::get('/admin/set/about', 'SetController@about');
+//后台管理-关于我们保存
+Route::post('/admin/set/aboutStore', 'SetController@aboutStore');
+//后台管理-联系方式设置页
+Route::get('/admin/set/contact', 'SetController@contact');
+//后台管理-联系方式保存
+Route::post('/admin/set/contactStore', 'SetController@contactStore');
+//后台管理-留言管理列表页
+Route::get('/admin/set/message', 'SetController@message');
+//后台管理-留言删除
+Route::post('/admin/set/messageDel', 'SetController@messageDel');

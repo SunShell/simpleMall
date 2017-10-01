@@ -1,14 +1,21 @@
+<?php
+    use App\Http\Controllers\ConfigController;
+
+    $wcc = new ConfigController();
+
+    $siteName = $wcc->getWebsiteConfig('site_name');
+?>
 <!doctype html>
 <html class="fullscreen-bg">
 
 <head>
-    <title>登录-管理后台-</title>
+    <title>登录-管理后台-{{ $siteName }}</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
     <!-- ICONS -->
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('/images/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ $wcc->getWebsiteConfig('site_icon') }}">
 
     <!-- VENDOR CSS -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -31,7 +38,7 @@
                 <div class="left">
                     <div class="content">
                         <div class="header">
-                            <div class="logo text-center"><img src="{{ asset('/images/logo-dark.png') }}" alt="公司logo"></div>
+                            <div class="logo text-center"><img src="{{ asset($wcc->getWebsiteConfig('site_logo')) }}" alt="公司logo" style="height: 21px;"></div>
                             <p class="lead">后台登录</p>
                         </div>
 
@@ -56,7 +63,7 @@
                     <div class="overlay"></div>
 
                     <div class="content text">
-                        <h1 class="heading">公司名称</h1>
+                        <h1 class="heading">{{ $siteName or '公司名称' }}</h1>
                         <p>管理后台</p>
                     </div>
                 </div>
