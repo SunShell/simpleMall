@@ -38,7 +38,7 @@
                 <div class="left">
                     <div class="content">
                         <div class="header">
-                            <div class="logo text-center"><img src="{{ asset($wcc->getWebsiteConfig('site_logo')) }}" alt="公司logo" style="height: 21px;"></div>
+                            <div class="logo text-center"><img src="{{ asset($wcc->getWebsiteConfig('site_logo')) }}" alt="公司logo" style="max-height: 53px;"></div>
                             <p class="lead">后台登录</p>
                         </div>
 

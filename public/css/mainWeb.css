@@ -1,0 +1,535 @@
+@charset "utf-8";
+
+html,body {
+    height: 100%;
+    min-width:1200px;
+    margin:0;
+    padding:0;
+    font-family: "Microsoft Yahei","微软雅黑",Tahoma,Arial,Helvetica,STHeiti, serif;
+    font-size:12px;
+}
+
+.smSiteTop {
+    width: 100%;
+    height: 120px;
+    background-color: #F2F2F2;
+}
+
+    .smSiteTop .topContainer {
+        width: 1200px;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .smSiteTop .topContainer .blueDiv {
+        width: 100%;
+        height: 28px;
+        background-image: url("../images/blueLine.png");
+        background-repeat: no-repeat;
+        background-position: right;
+    }
+
+        .smSiteTop .topContainer .blueDiv ul {
+            margin: 0 40px 0 0;
+            padding: 0;
+            color: #FFFFFF;
+            float: right;
+            line-height: 28px;
+        }
+
+        .smSiteTop .topContainer .blueDiv ul li {
+            display: inline-block;
+        }
+
+        .smSiteTop .topContainer .blueDiv ul li a {
+            cursor: pointer;
+        }
+
+    .smSiteTop .topContainer .logoDiv {
+        float: left;
+        padding-top: 20px;
+        padding-left: 30px;
+    }
+
+        .smSiteTop .topContainer .logoDiv img {
+            width: 187px;
+            height: 53px;
+        }
+
+    .smSiteTop .topContainer .navDiv {
+        float: right;
+        height: 92px;
+    }
+
+        .smSiteTop .topContainer .navDiv ul {
+            margin: 0;
+            padding: 0;
+            float: right;
+            line-height: 92px;
+            font-size: 18px;
+        }
+
+        .smSiteTop .topContainer .navDiv ul li {
+            display: inline-block;
+            cursor: pointer;
+            width: 120px;
+            text-align: center;
+        }
+
+        .smSiteTop .topContainer .navDiv .activeNav {
+            color: #0e6eb8;
+            background-color: #FFFFFF;
+        }
+
+.commonBannerDiv {
+    width: 100%;
+    height: 244px;
+    background-image: url("../images/banner.png");
+    background-size: cover;
+}
+
+.commonNavDiv {
+    width: 100%;
+    min-width: 1200px;
+    height: 50px;
+}
+
+    .commonNavDiv ul {
+        width: 1200px;
+        height: 100%;
+        margin:  0 auto;
+        padding: 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .commonNavDiv ul li {
+        display: inline-block;
+        line-height: 50px;
+        font-size: 18px;
+    }
+
+    .commonNavDiv ul li a {
+        cursor: pointer;
+        text-decoration: none;
+        color: #000;
+    }
+
+.smSiteBottom {
+    width: 100%;
+    height: 185px;
+    color: #FFFFFF;
+    background-color: #727171;
+}
+
+    .smSiteBottom .bottomContainer {
+        width: 1200px;
+        height: 135px;
+        margin: 0 auto;
+        padding-top: 20px;
+    }
+
+        .smSiteBottom .bottomContainer .bottomLeft {
+            position: relative;
+            float: left;
+            width: 120px;
+            height: 100%;
+            background-image: url("/images/qrBorderBottom.png");
+            background-repeat: no-repeat;
+            background-position: 0 96px;
+        }
+
+            .smSiteBottom .bottomContainer .bottomLeft .qrImg {
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                left: 10px;
+                top: 10px;
+            }
+
+            .smSiteBottom .bottomContainer .bottomLeft p {
+                text-align: center;
+                width: 100%;
+                position: absolute;
+                top: 110px;
+                padding: 0;
+                margin: 0;
+                line-height: 20px;
+            }
+
+        .smSiteBottom .bottomContainer .bottomCenter {
+            float: left;
+            padding-left: 100px;
+            width: 380px;
+            height: 100%;
+        }
+
+            .smSiteBottom .bottomContainer .bottomCenter ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            .smSiteBottom .bottomContainer .bottomCenter ul li {
+                display: block;
+                line-height: 20px;
+                padding-bottom: 5px;
+            }
+
+            .smSiteBottom .bottomContainer .bottomCenter ul li h3 {
+                margin: 0;
+                padding: 0;
+                letter-spacing: 2px;
+                font-size: 16px;
+                font-weight: normal;
+            }
+
+            .smSiteBottom .bottomContainer .bottomCenter ul li span {
+                letter-spacing: 2em;
+                margin-right: -2em;
+            }
+
+        .smSiteBottom .bottomContainer .bottomRight {
+            float: left;
+            width: 600px;
+            height: 100%;
+        }
+
+            .smSiteBottom .bottomContainer .bottomRight h3 {
+                margin: 0;
+                padding: 0 0 5px;
+                letter-spacing: 2px;
+                font-size: 16px;
+                font-weight: normal;
+                line-height: 20px;
+            }
+
+            .smSiteBottom .bottomContainer .bottomRight textarea {
+                color: #FFFFFF;
+                width: 100%;
+                resize: none;
+                border-radius: 10px;
+                height: 80px;
+                padding: 5px 10px;
+                margin-bottom: 5px;
+                background-color: #9fa0a0;
+                box-sizing: border-box;
+            }
+
+            .smSiteBottom .bottomContainer .bottomRight button {
+                float: right;
+                margin-right: 20px;
+                width: 50px;
+                height: 20px;
+                line-height: 20px;
+                border: none;
+                border-radius: 5px;
+                color: #FFFFFF;
+                cursor: pointer;
+                background-color: #9fa0a0;
+            }
+
+    .smSiteBottom .bottomContainerTwo {
+        width: 1200px;
+        height: 30px;
+        margin: 0 auto;
+    }
+
+        .smSiteBottom .bottomContainerTwo p {
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+.commonContainer {
+    width: 100%;
+    height: auto;
+    min-width: 1200px;
+}
+
+    .commonContainer .mainContainer {
+        width: 1200px;
+        margin: 0 auto;
+        padding: 15px 0 100px;
+    }
+
+        .commonContainer .mainContainer .mainNav {
+            float: left;
+            width: 255px;
+            height: auto;
+            padding-right: 20px;
+        }
+
+            .commonContainer .mainContainer .mainNav ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            .commonContainer .mainContainer .mainNav ul li {
+                display: block;
+                padding-left: 30px;
+                height: 48px;
+                line-height: 48px;
+                font-size: 16px;
+                border-bottom: solid 2px #e2e1e1;
+                background-color: #f5f5f5;
+            }
+
+            .commonContainer .mainContainer .mainNav .title {
+                height: 68px;
+                line-height: 68px;
+                border-top: solid 2px #125b91;
+                background-image: url("../images/blueNav.png");
+                color: #FFFFFF;
+                font-size: 28px;
+                letter-spacing: 2px;
+            }
+
+            .commonContainer .mainContainer .mainNav ul li a {
+                cursor: pointer;
+                text-decoration: none;
+                color: #000;
+            }
+
+            .commonContainer .mainContainer .mainNav .active {
+                color: #0e6eb8;
+            }
+
+        .commonContainer .mainContainer .mainContent {
+            float: right;
+            width: 925px;
+        }
+
+            .commonContainer .mainContainer .mainContent .listOne {
+                float: left;
+                width: 278px;
+                height: 318px;
+                border: 1px solid #c4c4c4;
+                margin-bottom: 40px;
+                margin-right: 42.5px;
+                line-height: 40px;
+                text-align: center;
+                background-color: #c4c4c4;
+                color: #FFFFFF;
+                cursor: pointer;
+            }
+
+            .commonContainer .mainContainer .mainContent .listOne:hover {
+                border: 1px solid #0e6eb8;
+                background-color: #0e6eb8;
+            }
+
+                .commonContainer .mainContainer .mainContent .listOne .listOneImg {
+                    width: 250px;
+                    height: 200px;
+                    padding: 39px 14px;
+                    background-color: #FFFFFF;
+                }
+
+                    .commonContainer .mainContainer .mainContent .listOne .listOneImg img {
+                        width: 100%;
+                        height: 100%;
+                    }
+
+            .commonContainer .mainContainer .mainContent .mainPageBar {
+                width: 100%;
+                height: 36px;
+                text-align: center;
+            }
+
+                .commonContainer .mainContainer .mainContent .mainPageBar a {
+                    cursor: pointer;
+                    padding: 10px 15px;
+                    line-height: 36px;
+                }
+
+                .commonContainer .mainContainer .mainContent .mainPageBar .active {
+                    background-color: #0e6eb8;
+                    color: #FFFFFF;
+                }
+
+            .commonContainer .mainContainer .mainContent .detailTitle {
+                width: 100%;
+                height: 60px;
+                line-height: 60px;
+                text-align: center;
+                color: #FFFFFF;
+                font-size: 22px;
+                margin-bottom: 5px;
+                background-image: url("../images/blueTitle.png");
+            }
+
+            .commonContainer .mainContainer .mainContent .detailTit {
+                width: 885px;
+                color: #FFFFFF;
+                height: 51px;
+                line-height: 51px;
+                border-bottom: solid 4px #167AC6;
+                font-size: 22px;
+                padding-left: 40px;
+                margin-bottom: 20px;
+                background-image: url("../images/blueTit.png");
+                background-repeat: no-repeat;
+            }
+
+            .commonContainer .mainContainer .mainContent .detailImg {
+                width: 100%;
+                height: 442px;
+                margin-bottom: 20px;
+            }
+
+                .commonContainer .mainContainer .mainContent .detailImg .leftImg {
+                    float: left;
+                    width: 500px;
+                    height: 400px;
+                    padding: 21px 115px;
+                    background-color: #efefef;
+                }
+
+                    .commonContainer .mainContainer .mainContent .detailImg .leftImg .imageBig {
+                        width: 500px;
+                        height: 400px;
+                    }
+
+                .commonContainer .mainContainer .mainContent .detailImg .rightImg {
+                    float: right;
+                    width: 180px;
+                    height: 440px;
+                    border: 1px solid #BFBFBF;
+                }
+
+                    .commonContainer .mainContainer .mainContent .detailImg .rightImg .up {
+                        background-image: url("../images/up.png");
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+
+                    .commonContainer .mainContainer .mainContent .detailImg .rightImg .down {
+                        background-image: url("../images/down.png");
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+
+                    .commonContainer .mainContainer .mainContent .detailImg .rightImg .upDown {
+                        height: 30px;
+                        cursor: pointer;
+                        background-color: #e2e0e0;
+                    }
+
+                    .commonContainer .mainContainer .mainContent .detailImg .rightImg .imageAll {
+                        width: 180px;
+                        height: 380px;
+                        overflow: hidden;
+                    }
+
+                        .commonContainer .mainContainer .mainContent .detailImg .rightImg .imageAll .imageMove {
+                            position: relative;
+                            width: 100%;
+                            height: auto;
+                        }
+
+                        .commonContainer .mainContainer .mainContent .detailImg .rightImg .imageAll .imageSmall {
+                            display: block;
+                            width: 150px;
+                            height: 120px;
+                            margin: 5px 0;
+                            padding: 0 15px;
+                            background-color: #efefef;
+                        }
+
+            .commonContainer .mainContainer .mainContent .detailPhoto {
+                width: 100%;
+                height: auto;
+                margin-bottom: 20px;
+            }
+
+                .commonContainer .mainContainer .mainContent .detailPhoto .photoOne {
+                    width: 220px;
+                    max-height: 180px;
+                }
+
+            .commonContainer .mainContainer .mainContent .detailContent {
+                width: 885px;
+                height: auto;
+                padding: 0 20px;
+                margin-bottom: 10px;
+            }
+
+                .commonContainer .mainContainer .mainContent .detailContent p {
+                    font-size: 18px;
+                }
+
+                .commonContainer .mainContainer .mainContent .detailAttr table {
+                    width: 100%;
+                    color: #595757;
+                    border-collapse:collapse;
+                }
+
+                    .commonContainer .mainContainer .mainContent .detailAttr table td {
+                        font-size: 16px;
+                        text-align: center;
+                        height: 30px;
+                        line-height: 30px;
+                        border-bottom: 1px solid #DEDEDE;
+                    }
+
+                    .commonContainer .mainContainer .mainContent .detailAttr table .title {
+                        font-size: 18px;
+                        background-color: #D2D2D2;
+                    }
+
+                    .commonContainer .mainContainer .mainContent .detailAttr table .left {
+                        padding-left: 20px;
+                        text-align: left;
+                    }
+
+            .commonContainer .mainContainer .mainContent .aboutContent p {
+                font-size: 18px;
+                line-height: 30px;
+                color: #3e3a39;
+            }
+
+        .commonContainer .mainContainer .mainClear {
+            clear: both;
+        }
+
+.commonContactDiv {
+    height: 410px;
+    width: 1120px;
+    padding: 100px 40px;
+    margin: 0 auto;
+}
+
+    .commonContactDiv .contactLeft {
+        float: left;
+        height: 100%;
+        width: 415px;
+        box-shadow: 0 0 5px #666;
+    }
+
+        .commonContactDiv .contactLeft .logo {
+            background-image: url("../images/logo-white.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #0e6eb8;
+            height: 65px;
+        }
+
+        .commonContactDiv .contactLeft table {
+            margin: 0;
+            padding: 25px 40px;
+            font-size: 18px;
+        }
+
+        .commonContactDiv .contactLeft table tr td {
+            height: 70px;
+        }
+
+        .commonContactDiv .contactLeft table tr td i {
+            font-size: 30px;
+        }
+
+    .commonContactDiv .contactRight {
+        float: right;
+        height: 100%;
+        width: 690px;
+    }

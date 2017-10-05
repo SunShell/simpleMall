@@ -1,0 +1,124 @@
+.commonContainer .mainContainer .mainContent .cultureDiv {
+    background-color: #f8f8f8;
+    width: 885px;
+    height: auto;
+    padding: 20px;
+}
+
+    .commonContainer .mainContainer .mainContent .cultureDiv p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .commonContainer .mainContainer .mainContent .cultureDiv i {
+        font-style: normal;
+    }
+
+    .commonContainer .mainContainer .mainContent .cultureDiv .titleOne {
+        font-size: 24px;
+    }
+
+    .commonContainer .mainContainer .mainContent .cultureDiv .titleTwo {
+        font-size: 14px;
+        padding-left: 10px;
+    }
+
+    .commonContainer .mainContainer .mainContent .cultureDiv .separateLine {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+        height: 2px;
+        background-color: #a8a8a8;
+    }
+
+    .commonContainer .mainContainer .mainContent .cultureDiv .separateLineLeft {
+        width: 100px;
+        height: 100%;
+        background-color: #0e6eb8;
+    }
+
+    .commonContainer .mainContainer .mainContent .cultureDiv .floor {
+        margin: 20px 0 50px;
+    }
+
+        .commonContainer .mainContainer .mainContent .cultureDiv .floor h3 {
+            font-size: 22px;
+            font-weight: normal;
+            margin: 0;
+            padding:0 0 10px;
+        }
+
+        .commonContainer .mainContainer .mainContent .cultureDiv .floor p {
+            font-size: 16px;
+            line-height: 30px;
+        }
+
+        .commonContainer .mainContainer .mainContent .cultureDiv .floor .floorOneImage {
+            float: left;
+            width: 300px;
+            height: 310px;
+            background-image: url("../images/culture-1.png");
+            background-position: -380px -100px;
+        }
+
+        .commonContainer .mainContainer .mainContent .cultureDiv .floor .floorOneContent {
+            float: right;
+            width: 560px;
+            height: 310px;
+        }
+
+        .commonContainer .mainContainer .mainContent .cultureDiv .floor .floorTwoImage {
+            float: right;
+            width: 560px;
+            height: 280px;
+            background-image: url("../images/culture-2.png");
+            background-position: -100px -150px;
+        }
+
+        .commonContainer .mainContainer .mainContent .cultureDiv .floor .floorTwoContent {
+            float: left;
+            width: 300px;
+            height: 280px;
+        }
+
+        .commonContainer .mainContainer .mainContent .cultureDiv .floor .floorThreeImage {
+            float: left;
+            width: 600px;
+            height: 160px;
+            background-image: url("../images/culture-3.png");
+            background-position: -60px -130px;
+        }
+
+        .commonContainer .mainContainer .mainContent .cultureDiv .floor .floorThreeContent {
+            float: right;
+            width: 250px;
+            height: 160px;
+        }
+
+        .commonContainer .mainContainer .mainContent .cultureDiv .floor .floorFourImage {
+            float: right;
+            width: 560px;
+            height: 260px;
+            background-image: url("../images/culture-4.png");
+            background-position: 0 -100px;
+        }
+
+        .commonContainer .mainContainer .mainContent .cultureDiv .floor .floorFourContent {
+            float: left;
+            width: 300px;
+            height: 260px;
+        }
+
+        .commonContainer .mainContainer .mainContent .cultureDiv .floor .floorFiveImage {
+            float: left;
+            width: 500px;
+            height: 400px;
+            background-image: url("../images/culture-5.png");
+            background-position: -160px -160px;
+        }
+
+        .commonContainer .mainContainer .mainContent .cultureDiv .floor .floorFiveContent {
+            float: right;
+            width: 370px;
+            height: 400px;
+        }

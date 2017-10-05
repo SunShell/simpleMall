@@ -1,0 +1,56 @@
+.commonContainer .mainContainer .categoryPart {
+    width: 100%;
+    height: 385px;
+    margin-bottom: 45px;
+}
+
+    .commonContainer .mainContainer .categoryPart .categoryTitle {
+        height: 45px;
+        line-height: 45px;
+        width: 1160px;
+        padding: 0 20px;
+        font-size: 26px;
+        color: #FFFFFF;
+        background-color: #0e6eb8;
+    }
+
+        .commonContainer .mainContainer .categoryPart .categoryTitle a {
+            float: right;
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+
+    .commonContainer .mainContainer .categoryPart .categoryList {
+        margin-top: 30px;
+    }
+
+        .commonContainer .mainContainer .categoryPart .categoryList .categoryOne {
+            float: left;
+            width: 266px;
+            height: 305px;
+            border: 1px solid #c4c4c4;
+            margin-left: 42.5px;
+            line-height: 39px;
+            text-align: center;
+            background-color: #c4c4c4;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+
+        .commonContainer .mainContainer .categoryPart .categoryList .categoryOne:hover {
+            border: 1px solid #0e6eb8;
+            background-color: #0e6eb8;
+        }
+
+        .commonContainer .mainContainer .categoryPart .categoryList .categoryOne .categoryImg {
+            width: 230px;
+            height: 200px;
+            padding: 33px 18px;
+            background-color: #FFFFFF;
+        }
+
+            .commonContainer .mainContainer .categoryPart .categoryList .categoryOne .categoryImg img {
+                width: 100%;
+                height: 100%;
+            }
+

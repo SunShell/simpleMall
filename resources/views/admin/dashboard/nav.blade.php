@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="brand">
-        <a href="/admin"><img src="{{ $wcc->getWebsiteConfig('site_logo') }}" alt="公司logo" class="img-responsive logo" style="height: 21px;"></a>
+        <a href="/admin"><img src="{{ $wcc->getWebsiteConfig('site_logo') }}" alt="公司logo" class="img-responsive logo" style="height: 53px;"></a>
     </div>
 
     <div class="container-fluid">

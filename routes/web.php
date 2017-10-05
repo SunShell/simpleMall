@@ -11,9 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return 'test';
-});
+//首页
+Route::get('/', 'SiteController@index');
+//关于我们
+Route::get('/about', 'SiteController@about');
+//关于我们-企业文化
+Route::get('/culture', 'SiteController@culture');
+//联系我们
+Route::get('/contact', 'SiteController@contact');
+//产品分类页
+Route::get('/product', 'SiteController@product');
+//产品分类列表页
+Route::get('/product/list/{categoryId}', 'SiteController@productList');
+//获取产品分类列表数据
+Route::post('/product/getList', 'SiteController@getList');
+//产品详情页
+Route::get('/product/detail/{productId}', 'SiteController@productDetail');
 
 /*
  * 翻页相关路由
