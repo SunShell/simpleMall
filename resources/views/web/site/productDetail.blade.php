@@ -40,7 +40,7 @@ $cc = new ConfigController();
                         <?php $images = $cc->getImage($productData->images,$productData->created_at,'product'); ?>
                         <div class="imageMove">
                         @foreach($images as $image)
-                            <img class="imageSmall" src="{{ $image }}">
+                            <img class="imageSmall imageMap" src="{{ $image }}">
                         @endforeach
                         </div>
                     </div>

@@ -27,6 +27,22 @@ Route::get('/product/list/{categoryId}', 'SiteController@productList');
 Route::post('/product/getList', 'SiteController@getList');
 //产品详情页
 Route::get('/product/detail/{productId}', 'SiteController@productDetail');
+//展会分类页
+Route::get('/example', 'SiteController@example');
+//展会列表页
+Route::get('/example/list/{categoryId}', 'SiteController@exampleList');
+//获取案例分类列表数据
+Route::post('/example/getList', 'SiteController@getExampleList');
+//展会详情页
+Route::get('/example/detail/{exampleId}', 'SiteController@exampleDetail');
+//新闻列表页
+Route::get('/article', 'SiteController@article');
+//新闻分类列表页
+Route::get('/article/list/{categoryId}', 'SiteController@articleList');
+//获取新闻列表数据
+Route::post('/article/getList', 'SiteController@getArticleList');
+//新闻详情页
+Route::get('/article/detail/{articleId}', 'SiteController@articleDetail');
 
 /*
  * 翻页相关路由

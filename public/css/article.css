@@ -1,0 +1,63 @@
+.commonContainer .mainContainer .mainContent .articleOne {
+    width: 100%;
+    height: 213px;
+    margin-bottom: 30px;
+}
+
+    .commonContainer .mainContainer .mainContent .articleOne .articleLeft {
+        float: left;
+        width: 285px;
+        height: 100%;
+    }
+
+        .commonContainer .mainContainer .mainContent .articleOne .articleLeft img {
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+        }
+
+    .commonContainer .mainContainer .mainContent .articleOne .articleRight {
+        float: right;
+        width: 580px;
+        height: 100%;
+    }
+
+        .commonContainer .mainContainer .mainContent .articleOne .articleRight h2 {
+            cursor: pointer;
+            font-size: 24px;
+            margin: 0;
+            padding: 0 0 10px;
+        }
+
+        .commonContainer .mainContainer .mainContent .articleOne .articleRight h3 {
+            font-weight: normal;
+            font-size: 18px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .commonContainer .mainContainer .mainContent .articleOne .articleRight p {
+            margin-top: 30px;
+            font-size: 18px;
+        }
+
+.commonContainer .mainContainer .articleDetail {
+    width: 100%;
+    height: auto;
+}
+
+.commonContainer .mainContainer .articleDetail h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+}
+
+.commonContainer .mainContainer .articleDetail h3 {
+    font-weight: normal;
+    width: 100%;
+    text-align: center;
+}
+
+.commonContainer .mainContainer .articleDetail .content {
+    margin-top: 40px;
+}

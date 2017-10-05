@@ -6,9 +6,10 @@ function initBase() {
 
 }
 
-function getPageHtml(allNum,pageId) {
+function getPageHtml(allNum,pageId,pageSize) {
+    if(!pageSize) pageSize = 9;
     var s,e,
-        pageNum = Math.ceil(allNum / 9) + (allNum === 0 ? 1 : 0);
+        pageNum = Math.ceil(allNum / pageSize) + (allNum === 0 ? 1 : 0);
 
     s = pageId - 2;
     if(s < 1) s = 1;
@@ -33,9 +34,11 @@ function getPageHtml(allNum,pageId) {
     return html;
 }
 
-function getNextNum(type,allNum,pageId,goId) {
+function getNextNum(type,allNum,pageId,goId,pageSize) {
+    if(!pageSize) pageSize = 9;
+
     var nextId,
-        pageNum = Math.ceil(allNum / 9) + (allNum === 0 ? 1 : 0);
+        pageNum = Math.ceil(allNum / pageSize) + (allNum === 0 ? 1 : 0);
 
     switch (type) {
         case 'pageI':
@@ -82,7 +85,7 @@ function bindImage() {
     });
 
 
-    $('.rightImg .imageAll .imageSmall').on('mouseover', function () {
+    $('.rightImg .imageAll .imageMap').on('mouseover', function () {
         var path = $(this).attr('src');
 
         $('.imageBig').attr('src', path);

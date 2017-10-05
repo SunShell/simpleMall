@@ -49,7 +49,12 @@
             background-color: #FFFFFF;
         }
 
-            .commonContainer .mainContainer .categoryPart .categoryList .categoryOne .categoryImg img {
+        .commonContainer .mainContainer .categoryPart .categoryList .categoryOne .categoryImgBig {
+            width: 266px;
+            height: 266px;
+        }
+
+            .commonContainer .mainContainer .categoryPart .categoryList .categoryOne .categoryImg img,.commonContainer .mainContainer .categoryPart .categoryList .categoryOne .categoryImgBig img {
                 width: 100%;
                 height: 100%;
             }
