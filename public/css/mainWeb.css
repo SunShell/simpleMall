@@ -423,6 +423,7 @@ html,body {
 
                         .commonContainer .mainContainer .mainContent .detailImg .rightImg .imageAll .imageMove {
                             position: relative;
+                            top: 0;
                             width: 100%;
                             height: auto;
                         }

@@ -73,12 +73,14 @@ class SiteController extends Controller
         $pageName = '大上产品';
         $pageId = 'product';
 
+        $product = new Product();
         $productCategory = new ProductCategory();
-        $categoryData = $productCategory->pluck('name', 'id');
+
+        $ids = $product->groupBy('categoryId')->pluck('categoryId');
+
+        $categoryData = $productCategory->whereIn('id', $ids)->pluck('name', 'id');
 
         $pageSub = array([ 'route' => '/product/list/'.$categoryId, 'name' => $categoryData[$categoryId] ]);
-
-        $product = new Product();
 
         $itemNum = $product->where('categoryId', $categoryId)->count();
 
@@ -110,7 +112,8 @@ class SiteController extends Controller
         $productCategoryConfig = new ProductCategoryConfig();
 
         $productData = $product->where('id', $productId)->first();
-        $categoryData = $productCategory->pluck('name','id');
+        $ids = $product->groupBy('categoryId')->pluck('categoryId');
+        $categoryData = $productCategory->whereIn('id', $ids)->pluck('name','id');
         $categoryName = $productCategory->where('id', $productData->categoryId)->value('name');
 
         $pageSub = array([ 'route' => '/product/list/'.$productData->categoryId, 'name' => $categoryName ], [ 'name' => $productData->name ]);
