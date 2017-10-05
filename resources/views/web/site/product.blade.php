@@ -13,25 +13,25 @@ $cc = new ConfigController();
 @section('content')
     <div class="mainContainer">
         @foreach($categoryData as $key => $value)
+            @if(isset($productData[$key]))
             <div class="categoryPart">
                 <div class="categoryTitle">
                     {{ $value }}
                     <a href="/product/list/{{ $key }}">更多>></a>
                 </div>
 
-                @if($productData[$key])
-                    <div class="categoryList">
-                        <?php $style = 'style="margin-left: 0;"'; ?>
-                        @foreach($productData[$key] as $one)
-                            <div class="categoryOne" productId="{{ $one->id }}" {!! $style !!}>
-                                <div class="categoryImg"><img src="{{ $cc->getImage($one->images,$one->created_at,'product',true) }}"></div>
-                                {{ $one->name }}
-                            </div>
-                            <?php $style=''; ?>
-                        @endforeach
-                    </div>
-                @endif
+                <div class="categoryList">
+                    <?php $style = 'style="margin-left: 0;"'; ?>
+                    @foreach($productData[$key] as $one)
+                        <div class="categoryOne" productId="{{ $one->id }}" {!! $style !!}>
+                            <div class="categoryImg"><img src="{{ $cc->getImage($one->images,$one->created_at,'product',true) }}"></div>
+                            {{ $one->name }}
+                        </div>
+                        <?php $style=''; ?>
+                    @endforeach
+                </div>
             </div>
+            @endif
         @endforeach
     </div>
 @endsection
