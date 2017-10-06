@@ -14,6 +14,7 @@ use App\Article;
 use App\ArticleCategory;
 use App\ServiceIssue;
 use App\ServiceVendor;
+use App\SetBanner;
 
 class SiteController extends Controller
 {
@@ -22,7 +23,26 @@ class SiteController extends Controller
         $pageName = '首页';
         $pageId = 'index';
 
-        return view('web.site.index', compact('pageName', 'pageId'));
+        $setBanner = new SetBanner();
+        $productCategory = new ProductCategory();
+        $article = new Article();
+        $articleCategory = new ArticleCategory();
+
+        $bannerData = $setBanner->orderBy('created_at','desc')->offset(0)->limit(4)->get();
+        $productData = $productCategory->where('indexShow', 1)->offset(0)->limit(2)->get();
+
+        $twoCategory = $articleCategory->orderBy('id', 'asc')->offset(0)->limit(2)->get(['id', 'name']);
+        $articleData = array();
+
+        foreach ($twoCategory as $two) {
+            $res = $article->where('categoryId', $two->id)->orderBy('created_at', 'desc')->offset(0)->limit(6)->get();
+            $articleData[$two->id] = array(
+                'name' => $two->name,
+                'data' => $res
+            );
+        }
+
+        return view('web.site.index', compact('pageName', 'pageId', 'bannerData', 'productData', 'articleData'));
     }
 
     public function about()

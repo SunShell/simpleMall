@@ -35,7 +35,8 @@
 @include('web.site.footer')
 
 <!-- JS -->
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="{{ asset('/lib/layer/layer.js') }}"></script>
 <script src="{{ asset('/js/mainWeb.js') }}"></script>
 @yield('jsContent')
 </body>

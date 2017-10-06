@@ -1,11 +1,3 @@
-$(function () {
-    initBase();
-});
-
-function initBase() {
-
-}
-
 function getPageHtml(allNum,pageId,pageSize) {
     if(!pageSize) pageSize = 9;
     var s,e,
