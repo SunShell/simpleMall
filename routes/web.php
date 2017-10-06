@@ -43,6 +43,18 @@ Route::get('/article/list/{categoryId}', 'SiteController@articleList');
 Route::post('/article/getList', 'SiteController@getArticleList');
 //新闻详情页
 Route::get('/article/detail/{articleId}', 'SiteController@articleDetail');
+//服务与支持
+Route::get('/service', 'SiteController@service');
+//问题列表
+Route::get('/service/issue', 'SiteController@issue');
+//获取问题列表
+Route::post('/service/getIssues', 'SiteController@getIssues');
+//问题详情
+Route::get('/service/issue/{issueId}', 'SiteController@issueDetail');
+//经销商查询页面
+Route::get('/service/vendor', 'SiteController@vendor');
+//经销商查询
+Route::post('/service/getVendor', 'SiteController@getVendor');
 
 /*
  * 翻页相关路由

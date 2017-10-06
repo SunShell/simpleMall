@@ -76,10 +76,18 @@ html,body {
             text-align: center;
         }
 
+            .smSiteTop .topContainer .navDiv ul li a {
+                color: #000;
+                text-decoration: none;
+            }
+
         .smSiteTop .topContainer .navDiv .activeNav {
-            color: #0e6eb8;
             background-color: #FFFFFF;
         }
+
+            .smSiteTop .topContainer .navDiv .activeNav a {
+                color: #0e6eb8;
+            }
 
 .commonBannerDiv {
     width: 100%;
@@ -133,7 +141,7 @@ html,body {
             float: left;
             width: 120px;
             height: 100%;
-            background-image: url("/images/qrBorderBottom.png");
+            background-image: url("../images/qrBorderBottom.png");
             background-repeat: no-repeat;
             background-position: 0 96px;
         }

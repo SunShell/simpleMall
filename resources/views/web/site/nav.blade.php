@@ -18,9 +18,9 @@
             <ul>
                 @foreach($navs as $id => $nav)
                     @if($id == $pageId)
-                        <li hrefData="{{ $id }}" class="activeNav">{{ $nav }}</li>
+                        <li class="activeNav"><a href="/{{ $id == 'index' ? '' : $id }}">{{ $nav }}</a></li>
                     @else
-                        <li hrefData="{{ $id }}">{{ $nav }}</li>
+                        <li><a href="/{{ $id == 'index' ? '' : $id }}">{{ $nav }}</a></li>
                     @endif
                 @endforeach
             </ul>

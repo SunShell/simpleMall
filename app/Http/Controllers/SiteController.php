@@ -12,6 +12,8 @@ use App\Example;
 use App\ExampleCategory;
 use App\Article;
 use App\ArticleCategory;
+use App\ServiceIssue;
+use App\ServiceVendor;
 
 class SiteController extends Controller
 {
@@ -267,5 +269,92 @@ class SiteController extends Controller
         $pageSub = array([ 'route' => '/article/list/'.$articleData->categoryId, 'name' => $categoryName ]);
 
         return view('web.site.articleDetail', compact('pageName', 'pageId', 'pageSub', 'articleData'));
+    }
+
+    public function service()
+    {
+        $pageName = '服务与支持';
+        $pageId = 'service';
+
+        $serviceIssue = new ServiceIssue();
+
+        $issueData = $serviceIssue->orderBy('reads', 'desc')->offset(0)->limit(8)->get();
+
+        return view('web.site.service', compact('pageName', 'pageId', 'issueData'));
+    }
+
+    public function issue()
+    {
+        $pageName = '服务与支持';
+        $pageId = 'service';
+
+        $pageSub = array([ 'name' => '热门问题' ]);
+
+        $serviceIssue = new ServiceIssue();
+
+        $itemNum = $serviceIssue->count();
+
+        return view('web.site.issue', compact('pageName', 'pageId', 'pageSub', 'itemNum'));
+    }
+
+    public function getIssues()
+    {
+        $pageId = request('pageId');
+
+        $serviceIssue = new ServiceIssue();
+
+        $res = $serviceIssue->orderBy('reads', 'desc')->offset(($pageId-1)*10)->limit(10)->get(['id','name']);
+
+        return response()->json(array('data'=> $res), 200);
+    }
+
+    public function issueDetail($issueId)
+    {
+        $pageName = '服务与支持';
+        $pageId = 'service';
+
+        $pageSub = array([ 'name' => '热门问题' ]);
+
+        $serviceIssue = new ServiceIssue();
+
+        $issueData = $serviceIssue->where('id', $issueId)->first();
+
+        if($issueData){
+            $serviceIssue->where('id', $issueId)->update(['reads' => $issueData->reads+1 ]);
+        }else{
+            return redirect('/service/issue');
+        }
+
+        return view('web.site.issueDetail', compact('pageName', 'pageId', 'pageSub', 'issueData'));
+    }
+
+    public function vendor()
+    {
+        $pageName = '服务与支持';
+        $pageId = 'service';
+
+        $pageSub = array([ 'name' => '经销商查询' ]);
+
+        return view('web.site.vendor', compact('pageName', 'pageId', 'pageSub'));
+    }
+
+    public function getVendor()
+    {
+        $vendorNumber = request('vendorNumber');
+        $vendorName = request('vendorName');
+
+        $serviceVendor = new ServiceVendor();
+
+        $num = $serviceVendor->where('number', $vendorNumber)->where('name', $vendorName)->count();
+
+        $flag = 'no';
+        $res = '';
+
+        if($num > 0){
+            $flag = 'yes';
+            $res = $serviceVendor->where('number', $vendorNumber)->where('name', $vendorName)->first();
+        }
+
+        return response()->json(array('flag' => $flag, 'data'=> $res), 200);
     }
 }
