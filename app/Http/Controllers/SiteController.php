@@ -15,6 +15,7 @@ use App\ArticleCategory;
 use App\ServiceIssue;
 use App\ServiceVendor;
 use App\SetBanner;
+use App\SetMessage;
 
 class SiteController extends Controller
 {
@@ -43,6 +44,23 @@ class SiteController extends Controller
         }
 
         return view('web.site.index', compact('pageName', 'pageId', 'bannerData', 'productData', 'articleData'));
+    }
+
+    //留言保存
+    public function messageStore()
+    {
+        $messageName = request('messageName');
+        $messagePhone = request('messagePhone');
+        $messageContent = request('messageContent');
+
+        $setMessage = new SetMessage();
+
+        $res = $setMessage->create([ 'name' => $messageName, 'phone' => $messagePhone, 'content' => $messageContent ]);
+
+        $flag = 'error';
+        if($res) $flag = 'success';
+
+        return response()->json(array('flag'=> $flag), 200);
     }
 
     public function about()

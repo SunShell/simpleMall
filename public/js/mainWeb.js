@@ -1,3 +1,92 @@
+var layerMainIndex = '';
+
+$(function () {
+    initMessage();
+});
+
+function initMessage() {
+    $('.smSiteBottom .bottomRight').on('click', '#bottomMessageSave', messageSave).on('click', '#bottomMessageClear', function () {
+        $('#bottomMessageContent').val('');
+    });
+}
+
+function messageSave() {
+    var messageToken = $('#bottomMessageToken').val(),
+        messageContent = $('#bottomMessageContent').val().trim();
+
+    if(!messageContent){
+        alert('请输入留言内容！');
+        return false;
+    }
+
+    layer.open({
+        type: 1,
+        title: '提交留言',
+        area: ['400px', '300px'],
+        zIndex: 1500,
+        content: '<div class="bottomMessageContainer">'+
+            '<div>'+
+                '<label for="bottomMessageName">姓名</label>'+
+                '<input type="text" id="bottomMessageName" name="bottomMessageName" placeholder="姓名">'+
+            '</div>'+
+            '<div>'+
+                '<label for="bottomMessagePhone">联系方式</label>'+
+                '<input type="text" id="bottomMessagePhone" name="bottomMessagePhone" placeholder="联系方式">'+
+            '</div>'+
+            '<button type="button" id="bottomMessageStore">提&nbsp;交</button>'+
+        '</div>',
+        success: function(layero, index){
+            layerMainIndex = index;
+
+            //保存数据
+            $('#bottomMessageStore').on('click', function () {
+                var messageName = $('#bottomMessageName').val().trim(),
+                    messagePhone = $('#bottomMessagePhone').val().trim();
+
+                if(!messageName){
+                    alert('请填写姓名！');
+                    return false;
+                }
+
+                if(!messagePhone){
+                    alert('请填写联系方式');
+                    return false;
+                }
+
+                $.ajax({
+                    type: 'post',
+                    url: '/message/store',
+                    headers: {
+                        'X-CSRF-TOKEN': messageToken
+                    },
+                    data: {
+                        messageName: messageName,
+                        messagePhone: messagePhone,
+                        messageContent: messageContent
+                    },
+                    success: function (res) {
+                        switch (res.flag){
+                            case 'success':
+                                alert("添加成功！");
+                                $('#bottomMessageContent').val('');
+                                closeMainLayer();
+                                break;
+                            default:
+                                alert("添加失败！");
+                                break;
+                        }
+                    }
+                });
+            });
+        }
+    });
+}
+
+function closeMainLayer() {
+    if(layerMainIndex) layer.close(layerMainIndex);
+    layerMainIndex = '';
+}
+
 function getPageHtml(allNum,pageId,pageSize) {
     if(!pageSize) pageSize = 9;
     var s,e,

@@ -18,9 +18,10 @@
 
         <div class="bottomRight">
             <h3>留言信息</h3>
-            <textarea placeholder="请在此输入您的留言内容..."></textarea>
-            <button>提&nbsp;交</button>
-            <button>清&nbsp;除</button>
+            <input type="hidden" id="bottomMessageToken" value="{{ csrf_token() }}">
+            <textarea id="bottomMessageContent" placeholder="请在此输入您的留言内容..."></textarea>
+            <button id="bottomMessageSave">提&nbsp;交</button>
+            <button id="bottomMessageClear">清&nbsp;除</button>
         </div>
     </div>
 

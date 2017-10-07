@@ -55,6 +55,8 @@ Route::get('/service/issue/{issueId}', 'SiteController@issueDetail');
 Route::get('/service/vendor', 'SiteController@vendor');
 //经销商查询
 Route::post('/service/getVendor', 'SiteController@getVendor');
+//留言保存
+Route::post('/message/store', 'SiteController@messageStore');
 
 /*
  * 翻页相关路由
