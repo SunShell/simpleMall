@@ -120,13 +120,17 @@ class SiteController extends Controller
         $product = new Product();
         $productCategory = new ProductCategory();
 
+        $itemNum = $product->where('categoryId', $categoryId)->count();
+
+        if($itemNum < 1){
+            return redirect('/product');
+        }
+
         $ids = $product->groupBy('categoryId')->pluck('categoryId');
 
         $categoryData = $productCategory->whereIn('id', $ids)->pluck('name', 'id');
 
         $pageSub = array([ 'route' => '/product/list/'.$categoryId, 'name' => $categoryData[$categoryId] ]);
-
-        $itemNum = $product->where('categoryId', $categoryId)->count();
 
         return view('web.site.productList', compact('pageName', 'pageId', 'categoryId', 'categoryData', 'pageSub', 'itemNum'));
     }
@@ -154,6 +158,12 @@ class SiteController extends Controller
         $productAttr = new ProductAttr();
         $productConfig = new ProductConfig();
         $productCategoryConfig = new ProductCategoryConfig();
+
+        $num = $product->where('id', $productId)->count();
+
+        if($num < 1){
+            return redirect('/product');
+        }
 
         $productData = $product->where('id', $productId)->first();
         $ids = $product->groupBy('categoryId')->pluck('categoryId');
@@ -202,13 +212,17 @@ class SiteController extends Controller
         $example = new Example();
         $exampleCategory = new ExampleCategory();
 
+        $itemNum = $example->where('categoryId', $categoryId)->count();
+
+        if($itemNum < 1){
+            return redirect('/example');
+        }
+
         $ids = $example->groupBy('categoryId')->pluck('categoryId');
 
         $categoryData = $exampleCategory->whereIn('id', $ids)->pluck('name', 'id');
 
         $pageSub = array([ 'route' => '/example/list/'.$categoryId, 'name' => $categoryData[$categoryId] ]);
-
-        $itemNum = $example->where('categoryId', $categoryId)->count();
 
         return view('web.site.exampleList', compact('pageName', 'pageId', 'categoryId', 'categoryData', 'pageSub', 'itemNum'));
     }
@@ -232,6 +246,12 @@ class SiteController extends Controller
 
         $example = new Example();
         $exampleCategory = new ExampleCategory();
+
+        $num = $example->where('id', $exampleId)->count();
+
+        if($num < 1){
+            return redirect('/example');
+        }
 
         $exampleData = $example->where('id', $exampleId)->first();
         $ids = $example->groupBy('categoryId')->pluck('categoryId');
@@ -267,11 +287,15 @@ class SiteController extends Controller
         $article = new Article();
         $articleCategory = new ArticleCategory();
 
+        $itemNum = $article->where('categoryId', $categoryId)->count();
+
+        if($itemNum < 1){
+            return redirect('/article');
+        }
+
         $categoryData = $articleCategory->pluck('name', 'id');
 
         $pageSub = array([ 'name' => $categoryData[$categoryId] ]);
-
-        $itemNum = $article->where('categoryId', $categoryId)->count();
 
         return view('web.site.articleList', compact('pageName', 'pageId', 'categoryId', 'categoryData', 'pageSub', 'itemNum'));
     }
@@ -299,6 +323,12 @@ class SiteController extends Controller
 
         $article = new Article();
         $articleCategory = new ArticleCategory();
+
+        $num = $article->where('id', $articleId)->count();
+
+        if($num < 1){
+            return redirect('/article');
+        }
 
         $articleData = $article->where('id', $articleId)->first();
 
