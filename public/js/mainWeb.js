@@ -53,6 +53,11 @@ function messageSave() {
                     return false;
                 }
 
+                if(!isPoneAvailable(messagePhone) && !isTelAvailable(messagePhone)){
+                    alert('请填写正确的手机号码或者座机号码！');
+                    return false;
+                }
+
                 $.ajax({
                     type: 'post',
                     url: '/message/store',
@@ -171,4 +176,16 @@ function bindImage() {
 
         $('.imageBig').attr('src', path);
     });
+}
+
+function isPoneAvailable (num) {
+    var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+
+    return myreg.test(num);
+}
+
+function isTelAvailable (num) {
+    var myreg = /^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/;
+
+    return myreg.test(num);
 }

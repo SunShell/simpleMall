@@ -12,27 +12,29 @@
 
     <div class="mainContent">
         <div class="aboutImage">
-            <?php
-            $images = explode(',', $aboutData->image);
-            $iLen = count($images);
-            ?>
+            @if(isset($aboutData->image))
+                <?php
+                $images = explode(',', $aboutData->image);
+                $iLen = count($images);
+                ?>
 
-            @if($iLen > 1)
-                @for($i=0;$i<$iLen;$i++)
-                    @if($i==0)
-                        <img style="float: left; width: 49%;" src="{{ asset("/uploads/images/about/".$images[$i]) }}">
-                    @else
-                        <img style="float: right; width: 49%;" src="{{ asset("/uploads/images/about/".$images[$i]) }}">
-                    @endif
-                @endfor
-                <div class="mainClear"></div>
-            @else
-                <img style="max-width: 100%;" src="{{ asset("/uploads/images/about/".$images[0]) }}">
+                @if($iLen > 1)
+                    @for($i=0;$i<$iLen;$i++)
+                        @if($i==0)
+                            <img style="float: left; width: 49%;" src="{{ asset("/uploads/images/about/".$images[$i]) }}">
+                        @else
+                            <img style="float: right; width: 49%;" src="{{ asset("/uploads/images/about/".$images[$i]) }}">
+                        @endif
+                    @endfor
+                    <div class="mainClear"></div>
+                @else
+                    <img style="max-width: 100%;" src="{{ asset("/uploads/images/about/".$images[0]) }}">
+                @endif
             @endif
         </div>
 
         <div class="aboutContent">
-            {!! $aboutData->content !!}
+            {!! $aboutData->content or '' !!}
         </div>
     </div>
 

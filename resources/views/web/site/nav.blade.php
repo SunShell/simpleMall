@@ -2,10 +2,6 @@
     <div class="topContainer">
         <div class="blueDiv">
             <ul>
-                <li><a>设为首页</a></li>
-                <li>丨</li>
-                <li><a>加入收藏</a></li>
-                <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
                 <li>联系电话：{{ $wcc->getWebsiteContact('phone') }}</li>
             </ul>
         </div>
