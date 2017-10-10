@@ -75,6 +75,22 @@ function initCategory() {
     }
 
     $('#pCategory').append(html);
+
+    if(initCategory){
+        $.ajax({
+            type: 'post',
+            url: '/admin/product/getCategoryConfig',
+            headers: {
+                'X-CSRF-TOKEN': theToken
+            },
+            data: {
+                categoryId: initCategory
+            },
+            success: function (res) {
+                configArr = res.data;
+            }
+        });
+    }
 }
 
 //按类型切换参数
