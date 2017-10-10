@@ -364,6 +364,10 @@ class ProductController extends Controller
         $addDate = new Carbon($data->created_at);
         session()->flash('addDatePath', $addDate->year.'/'.$addDate->month.'/'.$addDate->day);
 
+        $productCategoryConfig = new ProductCategoryConfig();
+        $config = $productCategoryConfig->where('categoryId', $data->categoryId)->pluck('configId');
+        session()->flash('productConfigData', $config);
+
         $productAttr = new ProductAttr();
         $subData = $productAttr->where('productId', $modifyId)->get();
         session()->flash('productAttrData', $subData);

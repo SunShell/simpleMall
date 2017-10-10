@@ -101,7 +101,7 @@
                 <label>性能参数</label>
                 <button type="button" id="productAttrAddBtn" class="btn btn-sm btn-success" style="margin-left: 20px;">添 加</button>
                 <div id="attrContainer">
-                    @if(session('productAttrData') && session('productAttrGroup'))
+                    @if(session('productAttrData') && session('productAttrGroup') && session('productConfigData'))
                         @foreach(session('productAttrGroup') as $groupOne)
                             <table class="table table-bordered product-attr-table">
                                 <tbody>
@@ -111,17 +111,27 @@
                                         <input type="text" class="pcModel" value="{{ $groupOne }}">
                                     </td>
                                 </tr>
-                                @foreach(session('productAttrData') as $attrOne)
-                                    @if($attrOne->name == $groupOne)
-                                        <tr>
-                                            <td>
-                                                {{ $configData[$attrOne->configId] or $attrOne->configId }}
-                                            </td>
-                                            <td>
-                                                <input type="text" class="pcAttr" data-value="{{ $attrOne->configId }}" value="{{ $attrOne->value }}">
-                                            </td>
-                                        </tr>
-                                    @endif
+
+                                @foreach(session('productConfigData') as $configOne)
+                                    <tr>
+                                        <td>
+                                            {{ $configData[$configOne] or $configOne }}
+                                        </td>
+                                        <td>
+                                            <?php $tdFlag = true; ?>
+
+                                            @foreach(session('productAttrData') as $attrOne)
+                                                @if($attrOne->name == $groupOne && $attrOne->configId == $configOne)
+                                                    <input type="text" class="pcAttr" data-value="{{ $configOne }}" value="{{ $attrOne->value == '-' ? '' : $attrOne->value }}">
+                                                    <?php $tdFlag = false; ?>
+                                                @endif
+                                            @endforeach
+
+                                            @if($tdFlag)
+                                                <input type="text" class="pcAttr" data-value="{{ $configOne }}">
+                                            @endif
+                                        </td>
+                                    </tr>
                                 @endforeach
                                 </tbody>
                             </table>
