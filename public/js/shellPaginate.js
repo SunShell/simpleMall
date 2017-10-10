@@ -16,7 +16,8 @@
             nameStr: '',        //需要取对照的字段
             nameObj: {},        //对照存储的对象
             modifyFun: null,    //修改方法
-            delFun: null        //删除方法
+            delFun: null,       //删除方法
+            detailFun: null     //详情方法
         },
         tools = {};
 
@@ -180,6 +181,13 @@
                               '</a>&nbsp;&nbsp;';
                     }
 
+                    //详情
+                    if(obj.value['detail']){
+                        td += '<a class="spListDetail" title="详情" data-value="'+objData[obj.value['del']]+'">'+
+                            '<i class="fa fa-bars"></i>'+
+                            '</a>&nbsp;&nbsp;';
+                    }
+
                     //删除
                     if(obj.value['del']){
                         td += '<a class="spListDel" title="删除" data-value="'+objData[obj.value['del']]+'">'+
@@ -248,6 +256,10 @@
             }).on('click', '.spListModify', function () {
                 if ($.isFunction(_this.config.modifyFun)) {
                     _this.config.modifyFun.apply(_this,[$(this).attr('data-value')]);
+                }
+            }).on('click', '.spListDetail', function () {
+                if ($.isFunction(_this.config.detailFun)) {
+                    _this.config.detailFun.apply(_this,[$(this).attr('data-value')]);
                 }
             }).on('click', '.spListDel', function () {
                 if ($.isFunction(_this.config.delFun)) {

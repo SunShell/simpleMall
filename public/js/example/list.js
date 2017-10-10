@@ -21,6 +21,7 @@ function initSth() {
         orderBy: 'order by created_at desc',
         nameStr: 'example_categories.id.name,users.userId.name',
         modifyFun: modifyFun,
+        detailFun: detailFun,
         delFun: delFun,
         listObj: [
             {
@@ -56,7 +57,7 @@ function initSth() {
             },
             {
                 type : 'operation',
-                value : { 'modify' : 'id', 'del' : 'id' },
+                value : { 'modify' : 'id', 'del' : 'id', 'detail' : 'id' },
                 showName : '操作'
             }
         ]
@@ -132,6 +133,11 @@ function queryFun() {
 function modifyFun(id) {
     $('#modifyId').val(id);
     $('#modifyForm').submit();
+}
+
+//查看详情
+function detailFun(id) {
+    window.open('/example/detail/' + id);
 }
 
 //删除操作

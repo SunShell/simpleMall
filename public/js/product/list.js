@@ -21,6 +21,7 @@ function initSth() {
         orderBy: 'order by created_at desc',
         nameStr: 'product_categories.id.name,users.userId.name',
         modifyFun: modifyFun,
+        detailFun: detailFun,
         delFun: delFun,
         listObj: [
             {
@@ -56,7 +57,7 @@ function initSth() {
             },
             {
                 type : 'operation',
-                value : { 'modify' : 'id', 'del' : 'id' },
+                value : { 'modify' : 'id', 'del' : 'id', 'detail' : 'id' },
                 showName : '操作'
             }
         ]
@@ -126,6 +127,11 @@ function queryFun() {
     }
 
     sp.reList(queryCon);
+}
+
+//查看详情
+function detailFun(id) {
+    window.open('/product/detail/' + id);
 }
 
 //修改操作
