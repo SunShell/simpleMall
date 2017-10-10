@@ -157,7 +157,6 @@ class SiteController extends Controller
         $productCategory = new ProductCategory();
         $productAttr = new ProductAttr();
         $productConfig = new ProductConfig();
-        $productCategoryConfig = new ProductCategoryConfig();
 
         $num = $product->where('id', $productId)->count();
 
@@ -178,7 +177,7 @@ class SiteController extends Controller
 
         $configData = $productConfig->pluck('name', 'id');
 
-        $configGroup = $productCategoryConfig->where('categoryId', $productData->categoryId)->pluck('configId');
+        $configGroup = $productAttr->where('productId', $productId)->where('value', '<>', '-')->groupBy('configId')->pluck('configId');
 
         return view('web.site.productDetail', compact('pageName', 'pageId', 'pageSub', 'productData', 'categoryData', 'attrData', 'attrGroup', 'configData', 'configGroup'));
     }

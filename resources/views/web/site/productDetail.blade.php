@@ -35,7 +35,7 @@ $cc = new ConfigController();
                 </div>
 
                 <div class="rightImg">
-                    <div class="upDown up"></i></div>
+                    <div class="upDown up"></div>
                     <div class="imageAll">
                         <?php $images = $cc->getImage($productData->images,$productData->created_at,'product'); ?>
                         <div class="imageMove">
