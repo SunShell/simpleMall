@@ -173,7 +173,11 @@ class SiteController extends Controller
 
         $attrData = $productAttr->where('productId', $productId)->get();
 
-        $attrGroup = $productAttr->where('productId', $productId)->groupBy('name')->pluck('name');
+        $names = $productAttr->where('productId', $productId)->orderBy('id', 'asc')->pluck('name');
+        $attrGroup = array();
+        foreach ($names as $name) {
+            if(!in_array($name, $attrGroup)) array_push($attrGroup, $name);
+        }
 
         $configData = $productConfig->pluck('name', 'id');
 

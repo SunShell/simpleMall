@@ -372,7 +372,11 @@ class ProductController extends Controller
         $subData = $productAttr->where('productId', $modifyId)->get();
         session()->flash('productAttrData', $subData);
 
-        $groupData = $productAttr->where('productId', $modifyId)->groupBy('name')->pluck('name');
+        $names = $productAttr->where('productId', $modifyId)->orderBy('id', 'asc')->pluck('name');
+        $groupData = array();
+        foreach ($names as $name) {
+            if(!in_array($name, $groupData)) array_push($groupData, $name);
+        }
         session()->flash('productAttrGroup', $groupData);
 
         return redirect()->route('productAdd');
