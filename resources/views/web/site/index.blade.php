@@ -54,6 +54,7 @@ $cc = new ConfigController();
     </div>
 
     <!--新闻部分-->
+    @if(count($articleData) > 0)
     <div class="indexArticle">
         <div class="left">
             <?php $i=0; ?>
@@ -103,6 +104,7 @@ $cc = new ConfigController();
             @endforeach
         </div>
     </div>
+    @endif
 @endsection
 
 @section('jsContent')
