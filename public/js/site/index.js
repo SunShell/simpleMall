@@ -5,7 +5,7 @@ $(function () {
 });
 
 function initBase() {
-    initBanner();
+    if($('.mainBannerDot').length > 1) initBanner();
 
     //banner图跳转
     $('.mainBanner').on('click', 'li', function () {
@@ -23,6 +23,8 @@ function initBase() {
     //banner图点击切换
     $('.mainBannerDot').on('click', function () {
         bannerObj && clearTimeout(bannerObj);
+
+        if($('.mainBannerDot').length <= 1) return false;
 
         var one = +$('.mainBannerDotSel').attr('banner'),
             two = +$(this).attr('banner');
