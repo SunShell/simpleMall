@@ -27,7 +27,7 @@
             <input type="text" class="form-control spOpIpt" id="queryName" placeholder="新闻标题">&nbsp;&nbsp;
 
             <a class="btn btn-primary"><i class="fa fa-search"></i> 搜索</a>&nbsp;&nbsp;
-            <a class="btn btn-success" href="/admin/example/add"><i class="fa fa-plus"></i> 添加</a>&nbsp;&nbsp;
+            <a class="btn btn-success" href="/admin/article/add"><i class="fa fa-plus"></i> 添加</a>&nbsp;&nbsp;
             <a class="btn btn-danger"><i class="fa fa-times"></i> 删除</a>
         </div>
 
