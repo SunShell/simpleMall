@@ -140,6 +140,7 @@ class ArticleController extends Controller
         $abstract = request('pAbstract');
         $image = request('pImage');
         $content = request('pContent');
+        $publishTime = request('pPublishTime');
 
         $article = new Article();
 
@@ -151,7 +152,8 @@ class ArticleController extends Controller
             'abstract' => $abstract,
             'image' => $image,
             'content' => $content,
-            'addUser' => $userId
+            'addUser' => $userId,
+            'publishTime' => $publishTime
         ]);
 
         if($res){
@@ -195,6 +197,7 @@ class ArticleController extends Controller
         $abstract = request('pAbstract');
         $image = request('pImage');
         $content = request('pContent');
+        $publishTime = request('pPublishTime');
 
         $article = new Article();
 
@@ -203,7 +206,8 @@ class ArticleController extends Controller
             'name' => $name,
             'abstract' => $abstract,
             'image' => $image,
-            'content' => $content
+            'content' => $content,
+            'publishTime' => $publishTime
         ]);
 
         if($res){

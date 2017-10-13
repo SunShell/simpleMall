@@ -83,7 +83,7 @@ $cc = new ConfigController();
                         <li class="first">
                             <h3>
                                 <a href="/article/detail/{{ $five->id }}">{{ $five->name }}</a>
-                                <i>{{ substr($five->created_at,0,10) }}</i>
+                                <i>{{ substr($five->publishTime,0,10) }}</i>
                             </h3>
                             <p>{{ $five->abstract }}</p>
                         </li>
@@ -91,7 +91,7 @@ $cc = new ConfigController();
                         <li>
                             <h3>
                                 <a href="/article/detail/{{ $five->id }}">●&nbsp;&nbsp;{{ $five->name }}</a>
-                                <i>{{ substr($five->created_at,0,10) }}</i>
+                                <i>{{ substr($five->publishTime,0,10) }}</i>
                             </h3>
                         </li>
                     @endif

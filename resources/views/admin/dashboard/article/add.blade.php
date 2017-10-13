@@ -1,6 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('cssContent')
+    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
     @include('vendor.ueditor.assets')
 @endsection
 
@@ -31,6 +32,11 @@
                 <div class="form-group">
                     <label for="pName">标题</label>
                     <input type="text" class="form-control storeNeed" id="pName" name="pName" placeholder="标题" tip="标题" value="{{ session('articleData') ? session('articleData')->name : '' }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="pPublishTime">发布时间</label>
+                    <input readonly type="text" class="form-control storeNeed" id="pPublishTime" name="pPublishTime" placeholder="发布时间" tip="发布时间" value="{{ session('articleData') ? session('articleData')->publishTime : '' }}">
                 </div>
 
                 <div class="form-group">
@@ -80,6 +86,9 @@
 @endsection
 
 @section('jsContent')
+    <script src="https://cdn.bootcss.com/moment.js/2.19.0/moment.min.js"></script>
+    <script src="https://cdn.bootcss.com/moment.js/2.19.0/locale/zh-cn.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery.form/4.2.1/jquery.form.min.js"></script>
     <script src="{{ asset('/js/article/add.js') }}"></script>
 @endsection

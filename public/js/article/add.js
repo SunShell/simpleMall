@@ -11,6 +11,13 @@ function initSth() {
     //初始化提示框参数
     initToastr();
 
+    //初始化时间选择
+    $('#pPublishTime').datetimepicker({
+        locale: 'zh-cn',
+        ignoreReadonly : true,
+        format: 'YYYY-MM-DD HH:mm:ss'
+    });
+
     categoryData = $.parseJSON($('#categoryData').val());
 
     ue = UE.getEditor('pContents', {

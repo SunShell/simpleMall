@@ -166,7 +166,7 @@
                     }else{
                         var tmpVal = objData[obj.value];
 
-                        if(tmpVal.length > 30){
+                        if(tmpVal && tmpVal.length > 30){
                             td += '<span class="spListMore" title="点击查看全部" tipData="'+encodeURI(tmpVal)+'">' + tmpVal.substr(0,30) + '...' + '</span>';
                         }else{
                             td += tmpVal;

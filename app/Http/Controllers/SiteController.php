@@ -36,7 +36,7 @@ class SiteController extends Controller
         $articleData = array();
 
         foreach ($twoCategory as $two) {
-            $res = $article->where('categoryId', $two->id)->orderBy('created_at', 'desc')->offset(0)->limit(6)->get();
+            $res = $article->where('categoryId', $two->id)->orderBy('publishTime', 'desc')->offset(0)->limit(6)->get();
             $articleData[$two->id] = array(
                 'name' => $two->name,
                 'data' => $res
@@ -311,9 +311,9 @@ class SiteController extends Controller
         $article = new Article();
 
         if($categoryId == 'all'){
-            $res = $article->orderBy('created_at', 'desc')->offset(($pageId-1)*5)->limit(5)->get();
+            $res = $article->orderBy('publishTime', 'desc')->offset(($pageId-1)*5)->limit(5)->get();
         }else{
-            $res = $article->where('categoryId', $categoryId)->orderBy('created_at', 'desc')->offset(($pageId-1)*5)->limit(5)->get();
+            $res = $article->where('categoryId', $categoryId)->orderBy('publishTime', 'desc')->offset(($pageId-1)*5)->limit(5)->get();
         }
 
         return response()->json(array('data'=> $res), 200);

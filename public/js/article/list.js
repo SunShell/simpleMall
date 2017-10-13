@@ -18,7 +18,7 @@ function initSth() {
     sp = $('#alContainer').shellPaginate({
         token: theToken,
         table: 'articles',
-        orderBy: 'order by created_at desc',
+        orderBy: 'order by publishTime desc',
         nameStr: 'article_categories.id.name,users.userId.name',
         modifyFun: modifyFun,
         detailFun: detailFun,
@@ -48,6 +48,12 @@ function initSth() {
                 showName : '添加人',
                 orderField : 'addUser',
                 matchField : 'users_userId'
+            },
+            {
+                type : 'content',
+                value : 'publishTime',
+                showName : '发布时间',
+                orderField : 'publishTime'
             },
             {
                 type : 'content',

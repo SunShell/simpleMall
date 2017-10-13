@@ -44,7 +44,7 @@ function renderData(data) {
                     '</div>'+
                     '<div class="articleRight">'+
                         '<h2 class="gtd" articleId="'+this.id+'">'+this.name+'</h2>'+
-                        '<h3>'+this.created_at.substring(0,10)+'</h3>'+
+                        '<h3>'+(this.publishTime ? this.publishTime.substring(0,10) : '')+'</h3>'+
                         '<p>'+this.abstract+'</p>'+
                     '</div>'+
                 '</div>';
