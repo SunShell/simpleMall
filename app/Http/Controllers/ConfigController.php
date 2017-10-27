@@ -59,7 +59,7 @@ class ConfigController extends Controller
     //获取导航
     public function getWebsiteNav()
     {
-        return array('index' => '网站首页','product' => '大上产品','service' => '服务与支持','example' => '案例展示','about' => '关于我们','article' => '新闻中心','contact' => '联系我们');
+        return array('index' => '网站首页','product' => '凯创产品','service' => '服务与支持','example' => '案例展示','about' => '关于我们','article' => '新闻中心','contact' => '联系我们');
     }
 
     //根据创建时间获取图片路径

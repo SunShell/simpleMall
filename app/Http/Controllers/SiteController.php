@@ -92,7 +92,7 @@ class SiteController extends Controller
 
     public function product()
     {
-        $pageName = '大上产品';
+        $pageName = '凯创产品';
         $pageId = 'product';
 
         $product = new Product();
@@ -114,7 +114,7 @@ class SiteController extends Controller
     //分类列表页
     public function productList($categoryId)
     {
-        $pageName = '大上产品';
+        $pageName = '凯创产品';
         $pageId = 'product';
 
         $product = new Product();
@@ -150,7 +150,7 @@ class SiteController extends Controller
     //产品详情
     public function productDetail($productId)
     {
-        $pageName = '大上产品';
+        $pageName = '凯创产品';
         $pageId = 'product';
 
         $product = new Product();
