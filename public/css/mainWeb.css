@@ -2,7 +2,7 @@
 
 html,body {
     height: 100%;
-    min-width:1200px;
+    min-width:1400px;
     margin:0;
     padding:0;
     font-family: "Microsoft Yahei","微软雅黑",Tahoma,Arial,Helvetica,STHeiti, serif;
@@ -16,7 +16,7 @@ html,body {
 }
 
     .smSiteTop .topContainer {
-        width: 1200px;
+        width: 1400px;
         height: 100%;
         margin: 0 auto;
     }
@@ -48,10 +48,16 @@ html,body {
     .smSiteTop .topContainer .logoDiv {
         float: left;
         padding-top: 20px;
-        padding-left: 30px;
+        background-image: url("../images/logo.png");
+        background-repeat: no-repeat;
+        background-position: left;
+        width: 420px;
+        height: 72px;
     }
 
         .smSiteTop .topContainer .logoDiv img {
+            display: block;
+            float: right;
             width: 187px;
             height: 53px;
         }
