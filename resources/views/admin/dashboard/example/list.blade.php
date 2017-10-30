@@ -7,7 +7,7 @@
 @section('content')
     <div class="panel panel-headline">
         <div class="panel-heading">
-            <h3 class="panel-title">产品列表</h3>
+            <h3 class="panel-title">案例列表</h3>
         </div>
 
         <input type="hidden" id="theSrc" value="{{ asset('uploads/images/example') }}">
