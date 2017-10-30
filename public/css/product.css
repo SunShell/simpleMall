@@ -52,10 +52,14 @@
         .commonContainer .mainContainer .categoryPart .categoryList .categoryOne .categoryImgBig {
             width: 266px;
             height: 266px;
+            overflow: hidden;
         }
 
-            .commonContainer .mainContainer .categoryPart .categoryList .categoryOne .categoryImg img,.commonContainer .mainContainer .categoryPart .categoryList .categoryOne .categoryImgBig img {
+            .commonContainer .mainContainer .categoryPart .categoryList .categoryOne .categoryImg img {
                 width: 100%;
                 height: 100%;
             }
 
+            .commonContainer .mainContainer .categoryPart .categoryList .categoryOne .categoryImgBig img {
+                height: 100%;
+            }

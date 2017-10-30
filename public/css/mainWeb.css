@@ -342,10 +342,15 @@ html,body {
                 .commonContainer .mainContainer .mainContent .listOne .listOneImgBig {
                     width: 278px;
                     height: 278px;
+                    overflow: hidden;
                 }
 
-                    .commonContainer .mainContainer .mainContent .listOne .listOneImg img,.commonContainer .mainContainer .mainContent .listOne .listOneImgBig img {
+                    .commonContainer .mainContainer .mainContent .listOne .listOneImg img {
                         width: 100%;
+                        height: 100%;
+                    }
+
+                    .commonContainer .mainContainer .mainContent .listOne .listOneImgBig img {
                         height: 100%;
                     }
 
