@@ -7,7 +7,7 @@ function initSth() {
 
     $('.photoAll').vmcarousel({
         centered: true,
-        start_item: 0,
+        start_item: 1,
         autoplay: false,
         infinite: true
     });
