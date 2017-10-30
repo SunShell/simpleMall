@@ -49,7 +49,7 @@ $cc = new ConfigController();
                 <div class="mainClear"></div>
             </div>
 
-            <div class="detailTit">案例详情</div>
+            <div class="detailTit">{{ str_replace("案例","",$categoryData[$exampleData->categoryId]) }}详情</div>
 
             <div class="detailContent">{!! $exampleData->content !!}</div>
         </div>
