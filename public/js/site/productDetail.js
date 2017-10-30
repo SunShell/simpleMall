@@ -9,6 +9,6 @@ function initSth() {
         centered: true,
         start_item: 1,
         autoplay: false,
-        infinite: true
+        infinite: false
     });
 }
