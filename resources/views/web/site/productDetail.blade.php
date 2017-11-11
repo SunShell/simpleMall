@@ -80,16 +80,19 @@ $cc = new ConfigController();
                             </tr>
                         @endif
 
-                        <tr>
-                            <td class="left">{{ $configData[$configGroup[$i]] }}</td>
-                            @foreach($attrGroup as $tmpOne)
-                                @foreach($attrData as $tmpTwo)
-                                    @if($tmpTwo->name == $tmpOne && $tmpTwo->configId == $configGroup[$i])
-                                        <td>{{ $tmpTwo->value }}</td>
-                                    @endif
+                        <?php $leftName = $configData[$configGroup[$i]]; ?>
+                        @if(strpos($leftName,'尺寸') !== false || strpos($leftName,'厚度') !== false || strpos($leftName,'展示面积') !== false || strpos($leftName,'温度范围') !== false || strpos($leftName,'有效容积') !== false)
+                            <tr>
+                                <td class="left">{{ $leftName }}</td>
+                                @foreach($attrGroup as $tmpOne)
+                                    @foreach($attrData as $tmpTwo)
+                                        @if($tmpTwo->name == $tmpOne && $tmpTwo->configId == $configGroup[$i])
+                                            <td>{{ $tmpTwo->value }}</td>
+                                        @endif
+                                    @endforeach
                                 @endforeach
-                            @endforeach
-                        </tr>
+                            </tr>
+                        @endif
                     @endfor
                     </tbody>
                 </table>
