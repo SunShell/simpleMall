@@ -30,7 +30,7 @@ class SiteController extends Controller
         $articleCategory = new ArticleCategory();
 
         $bannerData = $setBanner->orderBy('created_at','desc')->offset(0)->limit(4)->get();
-        $productData = $productCategory->where('indexShow', 1)->offset(0)->limit(2)->get();
+        $productData = $productCategory->where('indexShow', 1)->get();
 
         $twoCategory = $articleCategory->orderBy('id', 'asc')->offset(0)->limit(2)->get(['id', 'name']);
         $articleData = array();
