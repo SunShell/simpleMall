@@ -14,6 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="keywords" content="{{ $wcc->getWebsiteConfig('site_keywords') }}" />
     <meta name="description" content="{{ $wcc->getWebsiteConfig('site_introduce') }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- ICONS -->
     <link rel="icon" type="image/png" sizes="96x96" href="{{ $wcc->getWebsiteConfig('site_icon') }}">
