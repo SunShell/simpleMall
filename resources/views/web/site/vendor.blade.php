@@ -28,7 +28,7 @@
                     </div>
 
                     <div>
-                        <label for="vendorName">经销商编号</label>&nbsp;&nbsp;
+                        <label for="vendorName">经销商名称</label>&nbsp;&nbsp;
                         <input type="text" id="vendorName">
                     </div>
 
